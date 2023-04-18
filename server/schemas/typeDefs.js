@@ -4,6 +4,7 @@ const typeDefs = gql`
   type User {
     _id: ID
     username: String
+    password: String
     email: String
     tweeterYellow: Boolean
     twits: [Twit]!
@@ -47,9 +48,13 @@ const typeDefs = gql`
     editTwit(twitId: ID!, twitText: String!): Twit
     deleteTwit(twitId: ID!): Twit
 
-    addComment(commentText: String!): Comment
+    addComment(twitId: ID!, commentText: String!): Comment
     editComment(commentId: ID!, commentText: String!): Comment
     deleteComment(commentId: ID!): Comment
+
+    createUser(username: String!, email: String!, password: String!): Auth
+    deleteUser(userId: ID!, password: String!): User
+    login(email: String!, password: String!): Auth
   }
 `;
 
