@@ -5,7 +5,29 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    password: String
+    yellow: Boolean
+  }
+
+  type Twit {
+    _id: ID
+    userId: ID
+    twitText: String
+    thumbsUp: Int
+    thumbsDown: Int
+    retwitCounter: Int
+    createdAt: Date
+    updatedAt: Date
+  }
+
+  type Comment {
+    _id: ID
+    twitId: ID
+    userId: ID
+    commentText: String
+    thumbsUp: Int
+    thumbsDown: Int
+    createdAt: Date
+    updatedAt: Date
   }
 
   type Query {
