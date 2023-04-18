@@ -46,6 +46,10 @@ const typeDefs = gql`
     addTwit(twitText: String!): Twit
     editTwit(twitId: ID!, twitText: String!): Twit
     deleteTwit(twitId: ID!): Twit
+
+    addComment(commentText: String!): Comment
+    editComment(commentId: ID!, commentText: String!): Comment
+    deleteComment(commentId: ID!): Comment
   }
 `;
 
