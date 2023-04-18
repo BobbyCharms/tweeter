@@ -1,0 +1,42 @@
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e6ecf0;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-details {
+  flex-grow: 1;
+}
+
+.username {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.bio {
+  font-size: 16px;
+  color: #657786;
+  margin: 0;
+}
+
+.tweeter-yellow-badge {
+  display: inline-block;
+  background-color: #ffc107;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
