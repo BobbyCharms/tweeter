@@ -21,14 +21,6 @@ const userSchema = new Schema({
             len: [1],
         },
     },
-    unique_username: {
-        type: String,
-        // unique users only
-        unique: true,
-        validate: {
-            len: [1],
-        },
-    },
     password: {
         type: String,
         required: true,
@@ -47,6 +39,12 @@ const userSchema = new Schema({
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
       },
+    twits: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Twit',
+    },
+  ],
 });
 
 const Users = model('User', userSchema);
