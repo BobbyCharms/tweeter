@@ -5,7 +5,8 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    yellow: Boolean
+    tweeterYellow: Boolean
+    twits: [Twit]!
   }
 
   type Twit {
@@ -17,6 +18,7 @@ const typeDefs = gql`
     retwitCounter: Int
     createdAt: Date
     updatedAt: Date
+    comments: [Comment]!
   }
 
   type Comment {
