@@ -41,6 +41,15 @@ const typeDefs = gql`
     twits: [Twit]
     userTwits(userId: ID!): [Twit]
   }
+
+  type Mutation {
+    addTwit(userId: ID!, twitText: String!): Twit
+    login(email: String!, password: String!): Auth
+
+    addSkill(profileId: ID!, skill: String!): Profile
+    removeProfile: Profile
+    removeSkill(skill: String!): Profile
+  }
 `;
 
 // Twuts is also being used to access userId and thus username for the side bar
