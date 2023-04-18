@@ -43,12 +43,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addTwit(userId: ID!, twitText: String!): Twit
-    login(email: String!, password: String!): Auth
-
-    addSkill(profileId: ID!, skill: String!): Profile
-    removeProfile: Profile
-    removeSkill(skill: String!): Profile
+    addTwit(twitText: String!): Twit
+    editTwit(twitId: ID!, twitText: String!): Twit
+    deleteTwit(twitId: ID!): Twit
   }
 `;
 
