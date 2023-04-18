@@ -32,9 +32,18 @@ const typeDefs = gql`
     updatedAt: Date
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
-    users: [User]
+    twits: [Twit]
+    userTwits(userId: ID!): [Twit]
   }
 `;
+
+// Twuts is also being used to access userId and thus username for the side bar
+// use a recentReactedTwits if we want a recent drama side bar instead
 
 module.exports = typeDefs;
