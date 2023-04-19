@@ -30,8 +30,14 @@ db.once('open', async () => {
       );
     }
 
-    // for (let i = 0; i < commentSeeds.length; i++) {
-    //   const { _id, twitId } = await Comment.create(commentSeeds[i]);
+    const dbTwits = await Twit.find({}, '_id')
+    const twitIds = dbTwits.map(dbTwit => dbTwit._id);
+
+
+    for (let i = 0; i < commentSeeds.length; i++) {
+      const userId = userIds[Math.floor(Math.random() * userIds.length)].toString()
+      const twitId = twitIds[Math.floor(Math.random() * twitIds.length)].toString()
+      const { _id } = await Comment.create(commentSeeds[i]);
     //   const twit = await Twit.findOneAndUpdate(
     //     { _id: new mongoose.Types.ObjectId(twitId) },
     //     {
