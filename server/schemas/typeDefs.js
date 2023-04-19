@@ -17,8 +17,8 @@ const typeDefs = gql`
     thumbsUp: Int
     thumbsDown: Int
     retwitCounter: Int
-    createdAt: Date
-    updatedAt: Date
+    createdAt: String
+    updatedAt: String
     comments: [Comment]!
   }
 
@@ -29,8 +29,8 @@ const typeDefs = gql`
     commentText: String
     thumbsUp: Int
     thumbsDown: Int
-    createdAt: Date
-    updatedAt: Date
+    createdAt: String
+    updatedAt: String
   }
 
   type Auth {
