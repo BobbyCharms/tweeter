@@ -17,7 +17,7 @@ db.once('open', async () => {
     const userIds = dbUsers.map(dbUser => dbUser._id);
 
     for (let i = 0; i < twitSeeds.length; i++) {
-      const userId = userIds[Math.floor(Math.random() * userIds.length)].toString()
+      const userId = userIds[Math.floor(Math.random() * userIds.length)].toString();
       const { _id } = await Twit.create({ twitText: twitSeeds[i].twitText, userId: userId  } );
       const user = await User.findOneAndUpdate(
         { _id: new mongoose.Types.ObjectId(userId) },
