@@ -3,6 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import Header from "./components/header/Header";
 import Footer from "./components/Footer/Footer";
+import Homepage from "./components/homepage/Homepage";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
