@@ -1,0 +1,11 @@
+footer {
+    /* display: flexbox;
+    align-items: end; */
+    flex-direction: center;
+    justify-content: space-between;
+    background-color: rgb(255, 230, 0);
+}
+
+p {
+    text-align: center;
+}
