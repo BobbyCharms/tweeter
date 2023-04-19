@@ -1,26 +1,42 @@
 const db = require('../config/connection');
-const { User, Thought } = require('../models');
+const { User, Twit, Comment } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
+const twitSeeds = require('./twitSeeds.json');
+const commentSeeds = require('./commentSeeds.json');
+const mongoose = require('mongoose')
 
 db.once('open', async () => {
   try {
-    await Thought.deleteMany({});
+    await Comment.deleteMany({})
+    await Twit.deleteMany({});
     await User.deleteMany({});
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < thoughtSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+    for (let i = 0; i < twitSeeds.length; i++) {
+      const { _id, userId } = await Twit.create(twitSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: thoughtAuthor },
+        { _id: new mongoose.Types.ObjectId(userId) },
         {
           $addToSet: {
-            thoughts: _id,
+            twits: _id,
           },
         }
       );
     }
+
+    for (let i = 0; i < commentSeeds.length; i++) {
+      const { _id, twitId } = await Comment.create(commentSeeds[i]);
+      const twit = await Twit.findOneAndUpdate(
+        { _id: new mongoose.Types.ObjectId(twitId) },
+        {
+          $addToSet: {
+            comments: _id,
+          },
+        }
+      );
+    }
+
   } catch (err) {
     console.error(err);
     process.exit(1);
