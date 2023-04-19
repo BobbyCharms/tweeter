@@ -3,12 +3,6 @@ const bcrypt = require('bcrypt');
 const dateFormat = require('../utils/dateFormat');
 
 const userSchema = new Schema({
-    id: {
-        type: Integer,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-    },
     email: {
         type: String,
         required: true,
@@ -18,23 +12,22 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
-        allowNull: false,
-        validate: {
-            len: [1],
-        },
+        minlength: 1
     },
     password: {
         type: String,
         required: true,
-        allowNull: false,
         validate: {
-            // requires password to have one digit, one lowercase, one uppercase, and be at least 8 characters long
-            is: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/,
+          validator: function(value) {
+            // tests password for having one digit, one lowercase, one uppercase, and to be at least 8 characters long
+            return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(value);
+          },
+          message: props => "Not a valid password!"
         },
     },
     tweeterYellow: {
         type: Boolean,
-        allowNull: false,
+        required: true,
     },
     createdAt: {
         type: Date,
