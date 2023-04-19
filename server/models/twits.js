@@ -11,11 +11,9 @@ const twitSchema = new Schema({
     twitText: {
         type: String,
         required: true,
-        validate: {
-            minlength: 1,
-            maxlength: 280,
-            trim: true,
-        }
+        minlength: 1,
+        maxlength: 280,
+        trim: true,
     },
     thumbsUp: {
         type: Number,
