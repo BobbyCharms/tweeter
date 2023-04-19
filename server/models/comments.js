@@ -13,15 +13,10 @@ const commentSchema = new Schema({
         allowNull: false,
         autoIncrement: true,
     },
-    commentId: {
+    twitId: {
         type: Integer,
         allowNull: false,
         autoIncrement: true,
-    },
-    commentAuthor: {
-        type: String,
-        required: true,
-        trim: true,
     },
     commentText: {
         type: String,
@@ -32,9 +27,11 @@ const commentSchema = new Schema({
     },
     thumbsUp: {
         type: Integer,
+        default: 0
     },
     thumbsDown: {
         type: Integer,
+        default: 0
     },
     createdAt: {
         type: Date,
@@ -50,4 +47,4 @@ const commentSchema = new Schema({
 
 const Comment = model('Comment', commentSchema);
 
-module.exports = Comment';
+module.exports = Comment

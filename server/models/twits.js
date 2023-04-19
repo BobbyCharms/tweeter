@@ -14,11 +14,6 @@ const twitSchema = new Schema({
         primaryKey: true,
         autoIncrement: true,
     },
-    twitAuthor: {
-        type: String,
-        required: true,
-        trim: true,
-    },
     twitText: {
         type: String,
         required: `Twit something. It doesn't have to be important, but it would be cooler if it was.`,
@@ -28,12 +23,15 @@ const twitSchema = new Schema({
     },
     thumbsUp: {
         type: Integer,
+        default: 0
     },
     thumbsDown: {
         type: Integer,
+        default: 0
     },
     retwitCounter: {
         type: Integer,
+        default: 0
     },
     createdAt: {
         type: Date,
@@ -47,21 +45,8 @@ const twitSchema = new Schema({
     },
   comments: [
     {
-        commentText: {
-            type: String,
-            required: true,
-            minlength: 1,
-            maxlength: 280,
-        },
-        commentAuthor: {
-            type: String,
-            required: true,
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: (timestamp) => dateFormat(timestamp),
-        },
+        type: Schema.Types.ObjectId,
+        ref: 'Comment',
     },
   ],
 });
