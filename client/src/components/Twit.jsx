@@ -1,6 +1,6 @@
 function Twit() {return(
     <div>
-        <p></p>
+        <p>Here's a twit</p>
     </div>
 )};
 
