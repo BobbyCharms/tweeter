@@ -14,6 +14,9 @@ const resolvers = {
         },
       ];
     },
+    twits: async () => {
+      return Twit.find();
+    },
   },
   Mutation: {
     createUser: async (parent, { username, email, password }) => {
