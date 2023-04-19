@@ -46,8 +46,11 @@ const resolvers = {
 
       return await User.findByIdAndDelete({ userId })
     },
-    addComment: async (parent, { twitId, commentText }) => {
-      return await Comment.create({ twitId, commentText })
+    addComment: async (parent, { twitId, commentText }, context) => {
+      if (context.user) {
+        return await Comment.create({ twitId, commentText })
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     editComment: async (parent, { commentId, commentText }) => {
       return await Comment.findOneAndUpdate(
