@@ -5,10 +5,20 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate("twits");
+      return User.find().populate({
+        path: 'twits',
+        populate: {
+          path: 'comments'
+        }
+      });
     },
     singleUser: async (parent, { userId }) => {
-      return User.findOne({_id: userId}).populate("twits");
+      return User.findOne({_id: userId}).populate({
+        path: 'twits',
+        populate: {
+          path: 'comments'
+        }
+      });
     },
     twits: async () => {
       return Twit.find().populate("comments");
@@ -34,7 +44,7 @@ const resolvers = {
         throw new AuthenticationError('No user with this email found!');
       }
 
-      const correctPw = await profile.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect password!');
