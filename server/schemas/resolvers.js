@@ -52,12 +52,16 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    editComment: async (parent, { commentId, commentText }) => {
-      return await Comment.findOneAndUpdate(
-        {_id: commentId,
-        commentText: commentText},
-        { new: true, runValidators: true}
-      );
+    editComment: async (parent, { commentId, commentText }, context) => {
+      const editComment = Comment.find({_id: commentId});
+      if (context.user._id === editComment.userId) {
+        return await Comment.findOneAndUpdate(
+          {_id: commentId,
+          commentText: commentText},
+          { new: true, runValidators: true}
+        );
+      }
+      throw new AuthenticationError("That's not your comment!");
     },
     deleteComment: async (parent, { commentId }) => {
       return await Comment.findByIdAndDelete({commentId}) 
