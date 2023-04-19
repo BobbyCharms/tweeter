@@ -43,7 +43,6 @@ const typeDefs = gql`
   type Query {
     twits: [Twit]
     userTwits(userId: ID!): [Twit]
-    users: [User]
   }
 
   type Mutation {
