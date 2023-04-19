@@ -66,6 +66,13 @@ const resolvers = {
     addTwit: async (parent, { twitText }) => {
       return await Twit.create({ twitText })
     },
+    editTwit: async (parent, { twitId, twitText }) => {
+      return await Twit.findOneAndUpdate(
+        {_id: twitId,
+        twitText: twitText},
+        { new: true, runValidators: true}
+      );
+    },
   }
 };
 
