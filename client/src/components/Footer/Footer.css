@@ -1,0 +1,17 @@
+footer {
+    position: fixed;
+    bottom: 0px;
+    left:0%;
+    right:0%;
+    display: flex;
+    align-items: center;
+    flex-direction: center;
+    justify-content: center;
+    background-color: rgb(255, 230, 0);
+}
+
+footer p {
+    text-align: center;
+    color: #ccc;
+    size: 25%;
+}
