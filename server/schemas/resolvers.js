@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Twit, Comment } = require('../models/index.js');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -62,6 +62,9 @@ const resolvers = {
     },
     deleteComment: async (parent, { commentId }) => {
       return await Comment.findByIdAndDelete({commentId}) 
+    },
+    addTwit: async (parent, { twitText }) => {
+      return await Twit.create({ twitText })
     },
   }
 };
