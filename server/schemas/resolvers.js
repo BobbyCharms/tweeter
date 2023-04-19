@@ -65,12 +65,16 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    editTwit: async (parent, { twitId, twitText }) => {
-      return await Twit.findOneAndUpdate(
-        {_id: twitId,
-        twitText: twitText},
-        { new: true, runValidators: true}
-      );
+    editTwit: async (parent, { twitId, twitText }, context) => {
+      const editTwit = Twit.find({_id: twitId});
+      if (context.user._id === editTwit.userId) {
+        return await Twit.findOneAndUpdate(
+          {_id: twitId,
+          twitText: twitText},
+          { new: true, runValidators: true}
+        );
+      }
+      throw new AuthenticationError("That's not your twit!");
     },
     deleteTwit: async (parent, { twitId }) => {
       return await Twit.findByIdAndDelete({twitId}) 
