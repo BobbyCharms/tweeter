@@ -46,7 +46,7 @@ const startServer = async () => {
   });
 };
 // start apollo server
-// connect express middlewar for apollo
+// connect express middleware for apollo
 
 // connect the db
 // start the express server
