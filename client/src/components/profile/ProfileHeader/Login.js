@@ -19,8 +19,14 @@ function About() {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
-
+          <Button variant="warning  btn-lg" type="submit" style={{marginTop:'20px'}}>
+            Login
+          </Button>
+          <Button variant="warning  btn-lg" type="submit" style={{marginLeft:'20px',marginTop:'20px'}}>
+            Sing Up
+          </Button>
         </Form>
+        
       </div>
   )
 }
