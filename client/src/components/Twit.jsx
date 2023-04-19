@@ -1,6 +1,6 @@
-function Twit() {return(
+function Twit(props) {return(
     <div>
-        <p>Here's a twit</p>
+        <p>{props.twit}</p>
     </div>
 )};
 
