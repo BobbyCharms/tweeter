@@ -1,8 +1,11 @@
 header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: rgb(255, 230, 0);
 }
 
 img {
-    height: 50px;
+    height: 75px;
     width: auto;
 }
