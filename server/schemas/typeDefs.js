@@ -41,8 +41,11 @@ const typeDefs = gql`
   }
 
   type Query {
+    users: [User]
+    singleUser(userId: ID!): User
     twits: [Twit]
     userTwits(userId: ID!): [Twit]
+    singleTwit(twitId: ID!): Twit
   }
 
   type Mutation {

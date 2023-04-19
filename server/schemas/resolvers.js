@@ -7,7 +7,7 @@ const resolvers = {
     users: async () => {
       return User.find().populate("twits");
     },
-    singleUser: async (parent, {userId}) => {
+    singleUser: async (parent, { userId }) => {
       return User.findOne({_id: userId}).populate("twits");
     },
     twits: async () => {
@@ -16,7 +16,7 @@ const resolvers = {
     userTwits: async (parent, { userId }) => {
       return Twit.find({userId: userId}).populate("comments");
     },
-    singleTwit: async (parent, {twitId}) => {
+    singleTwit: async (parent, { twitId }) => {
       return Twit.findOne({_id: twitId}).populate("comments");
     }
   },
