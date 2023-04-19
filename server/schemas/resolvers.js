@@ -73,6 +73,9 @@ const resolvers = {
         { new: true, runValidators: true}
       );
     },
+    deleteTwit: async (parent, { twitId }) => {
+      return await Twit.findByIdAndDelete({twitId}) 
+    },
   }
 };
 
