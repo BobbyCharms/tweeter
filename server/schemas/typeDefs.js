@@ -1,5 +1,6 @@
 const { gql } = require('apollo-server-express');
 
+
 const typeDefs = gql`
   type User {
     _id: ID
@@ -7,6 +8,7 @@ const typeDefs = gql`
     password: String
     email: String
     tweeterYellow: Boolean
+    createdAt: String
     twits: [Twit]!
   }
 
@@ -17,8 +19,8 @@ const typeDefs = gql`
     thumbsUp: Int
     thumbsDown: Int
     retwitCounter: Int
-    createdAt: Date
-    updatedAt: Date
+    createdAt: String
+    updatedAt: String
     comments: [Comment]!
   }
 
@@ -29,8 +31,8 @@ const typeDefs = gql`
     commentText: String
     thumbsUp: Int
     thumbsDown: Int
-    createdAt: Date
-    updatedAt: Date
+    createdAt: String
+    updatedAt: String
   }
 
   type Auth {
@@ -41,6 +43,7 @@ const typeDefs = gql`
   type Query {
     twits: [Twit]
     userTwits(userId: ID!): [Twit]
+    users: [User]
   }
 
   type Mutation {
