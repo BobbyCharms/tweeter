@@ -5,7 +5,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     twits: async () => {
-      return Twit.find();
+      return Twit.find().populate("comments");
     },
     userTwits: async (parent, { userId }) => {
       return Twit.find({userId: userId}).populate("comments");
