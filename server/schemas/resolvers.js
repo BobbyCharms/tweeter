@@ -50,7 +50,19 @@ const resolvers = {
 
       return await User.findByIdAndDelete({ userId })
     },
-
+    addComment: async (parent, { twitId, commentText }) => {
+      return await Comment.create({ twitId, commentText })
+    },
+    editComment: async (parent, { commentId, commentText }) => {
+      return await Comment.findOneAndUpdate(
+        {_id: commentId,
+        commentText: commentText},
+        { new: true, runValidators: true}
+      );
+    },
+    deleteComment: async (parent, { commentId }) => {
+      return await Comment.findByIdAndDelete({commentId}) 
+    },
   }
 };
 
