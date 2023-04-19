@@ -9,6 +9,9 @@ const resolvers = {
     },
     userTwits: async (parent, { userId }) => {
       return Twit.find({userId: userId}).populate("comments");
+    },
+    singleTwit: async (parent, {twitId}) => {
+      return Twit.findOne({_id: twitId}).populate("comments");
     }
   },
   Mutation: {
