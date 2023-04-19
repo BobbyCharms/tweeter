@@ -17,6 +17,9 @@ const resolvers = {
     twits: async () => {
       return Twit.find();
     },
+    userTwits: async (parent, { userId }) => {
+      return Twit.find({userId: userId});
+    }
   },
   Mutation: {
     createUser: async (parent, { username, email, password }) => {
