@@ -2,39 +2,28 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const commentSchema = new Schema({
-    id: {
-        type: Integer,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-    },
     userId: {
-        type: Integer,
-        allowNull: false,
-        autoIncrement: true,
-    },
-    commentId: {
-        type: Integer,
-        allowNull: false,
-        autoIncrement: true,
-    },
-    commentAuthor: {
         type: String,
         required: true,
-        trim: true,
+    },
+    twitId: {
+        type: String,
+        required: true,
     },
     commentText: {
         type: String,
-        required: `You got something to say?`,
+        required: true,
         minlength: 1,
         maxlength: 280,
         trim: true,
     },
     thumbsUp: {
-        type: Integer,
+        type: Number,
+        default: 0
     },
     thumbsDown: {
-        type: Integer,
+        type: Number,
+        default: 0
     },
     createdAt: {
         type: Date,
@@ -50,4 +39,4 @@ const commentSchema = new Schema({
 
 const Comment = model('Comment', commentSchema);
 
-module.exports = Comment';
+module.exports = Comment

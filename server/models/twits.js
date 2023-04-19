@@ -2,38 +2,28 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const twitSchema = new Schema({
-    id: {
-        type: Integer,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-    },
     userId: {
-        type: Integer,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-    },
-    twitAuthor: {
         type: String,
-        required: true,
-        trim: true,
+        required: true
     },
     twitText: {
         type: String,
-        required: `Twit something. It doesn't have to be important, but it would be cooler if it was.`,
+        required: true,
         minlength: 1,
         maxlength: 280,
         trim: true,
     },
     thumbsUp: {
-        type: Integer,
+        type: Number,
+        default: 0
     },
     thumbsDown: {
-        type: Integer,
+        type: Number,
+        default: 0
     },
     retwitCounter: {
-        type: Integer,
+        type: Number,
+        default: 0
     },
     createdAt: {
         type: Date,
@@ -47,21 +37,8 @@ const twitSchema = new Schema({
     },
   comments: [
     {
-        commentText: {
-            type: String,
-            required: true,
-            minlength: 1,
-            maxlength: 280,
-        },
-        commentAuthor: {
-            type: String,
-            required: true,
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: (timestamp) => dateFormat(timestamp),
-        },
+        type: Schema.Types.ObjectId,
+        ref: 'Comment',
     },
   ],
 });
