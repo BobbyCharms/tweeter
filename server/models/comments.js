@@ -12,7 +12,7 @@ const commentSchema = new Schema({
     },
     commentText: {
         type: String,
-        required: `You got something to say?`,
+        required: true,
         minlength: 1,
         maxlength: 280,
         trim: true,

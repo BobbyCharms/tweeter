@@ -18,7 +18,6 @@ db.once('open', async () => {
 
     for (let i = 0; i < twitSeeds.length; i++) {
       const userId = userIds[Math.floor(Math.random() * userIds.length)].toString()
-      console.log(userId)
       const { _id } = await Twit.create({ twitText: twitSeeds[i].twitText, userId: userId  } );
       const user = await User.findOneAndUpdate(
         { _id: new mongoose.Types.ObjectId(userId) },
@@ -37,16 +36,16 @@ db.once('open', async () => {
     for (let i = 0; i < commentSeeds.length; i++) {
       const userId = userIds[Math.floor(Math.random() * userIds.length)].toString()
       const twitId = twitIds[Math.floor(Math.random() * twitIds.length)].toString()
-      const { _id } = await Comment.create(commentSeeds[i]);
-    //   const twit = await Twit.findOneAndUpdate(
-    //     { _id: new mongoose.Types.ObjectId(twitId) },
-    //     {
-    //       $addToSet: {
-    //         comments: _id,
-    //       },
-    //     }
-    //   );
-    // }
+      const { _id } = await Comment.create({ commentText: commentSeeds[i].commentText, userId: userId, twitId: twitId });
+      const twit = await Twit.findOneAndUpdate(
+        { _id: new mongoose.Types.ObjectId(twitId) },
+        {
+          $addToSet: {
+            comments: _id,
+          },
+        }
+      );
+    }
 
   } catch (err) {
     console.error(err);

@@ -8,7 +8,7 @@ const resolvers = {
       return Twit.find();
     },
     userTwits: async (parent, { userId }) => {
-      return Twit.find({userId: userId});
+      return Twit.find({userId: userId}).populate("comments");
     }
   },
   Mutation: {
