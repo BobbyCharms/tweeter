@@ -10,9 +10,11 @@ console.log(date);
 function Header() {return(
     <div>
         <header>
-            <h1>Tweeter</h1>
+            <div className="brand">
+                <h1>Tweeter</h1>
+                <div className="picture"><img src={logo}/></div>
+            </div>
             <p>{date}</p>
-            <img src={logo}/>
         </header>
     </div>
 )};

@@ -3,9 +3,9 @@
 }
 
 header {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between; */
     background-color: rgb(255, 230, 0);
 }
 
@@ -13,12 +13,42 @@ h1 {
     padding-left: 10px;
 }
 
-p {
-    margin-bottom: 0px;
+header {
+    display: flex;
+    flex-direction: column;
 }
 
 img {
-    height: 75px;
-    width: auto;
-    padding: 10px 10px 10px 0px
+    height: auto;
+    width: 100%;
+    border-radius: 100%;
 }
+
+.picture {
+    margin-left: 5px;
+    width: 3.5em;
+    padding: 10px 10px 10px 10px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+header p {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: 17px;
+    margin-bottom: 0px;
+}
+
+@media (min-width: 701px) {
+    /* desktop */
+
+    header p {
+        align-self: center;
+        margin: 0px;
+    }
+
+}
+
