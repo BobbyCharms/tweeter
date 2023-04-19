@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import Header from "./components/header/Header"
+import Header from "./components/header/Header";
+import Footer from "./components/Footer/Footer";
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -13,6 +14,7 @@ function App() {
     <ApolloProvider client={client}>
       <div>
         <Header />
+        <Footer />
       </div>
     </ApolloProvider>
   );
