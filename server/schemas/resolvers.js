@@ -76,8 +76,12 @@ const resolvers = {
       }
       throw new AuthenticationError("That's not your twit!");
     },
-    deleteTwit: async (parent, { twitId }) => {
-      return await Twit.findByIdAndDelete({twitId}) 
+    deleteTwit: async (parent, { twitId }, context) => {
+      const deletedTwit = Twit.find({_id: twitId});
+      if (context.user._id === deletedTwit.userId) {
+        return await Twit.findByIdAndDelete({twitId}) 
+      }
+      throw new AuthenticationError("That's not your twit!");
     },
   }
 };
