@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 // apollo server
 const { ApolloServer } = require('apollo-server-express');
+
 // database connection
 const db = require('./config/connection');
 
@@ -14,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 // new apollo server
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers
 });
 
 // middlewares
@@ -45,7 +46,7 @@ const startServer = async () => {
   });
 };
 // start apollo server
-// connect express middlewar for apollo
+// connect express middleware for apollo
 
 // connect the db
 // start the express server
