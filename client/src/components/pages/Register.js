@@ -55,5 +55,5 @@ function Register() {
     </Row>
   </Container>
   )
-
+  }
 export default Register;
