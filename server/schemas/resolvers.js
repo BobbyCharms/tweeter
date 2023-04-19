@@ -7,6 +7,9 @@ const resolvers = {
     users: async () => {
       return User.find().populate("twits");
     },
+    singleUser: async (parent, {userId}) => {
+      return User.findOne({_id: userId}).populate("twits");
+    },
     twits: async () => {
       return Twit.find().populate("comments");
     },
