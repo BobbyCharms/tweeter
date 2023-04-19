@@ -28,6 +28,7 @@ const userSchema = new Schema({
     tweeterYellow: {
         type: Boolean,
         required: true,
+        default: false,
     },
     createdAt: {
         type: Date,

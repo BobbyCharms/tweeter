@@ -4,9 +4,7 @@ const dateFormat = require('../utils/dateFormat');
 const twitSchema = new Schema({
     userId: {
         type: Number,
-        required: true,
         primaryKey: true,
-        autoIncrement: true,
     },
     twitText: {
         type: String,

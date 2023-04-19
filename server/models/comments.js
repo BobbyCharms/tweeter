@@ -5,21 +5,17 @@ const commentSchema = new Schema({
     userId: {
         type: Number,
         required: true,
-        autoIncrement: true,
     },
     twitId: {
         type: Number,
         required: true,
-        autoIncrement: true,
     },
     commentText: {
         type: String,
         required: `You got something to say?`,
-        validate: {
-            minlength: 1,
-            maxlength: 280,
-            trim: true,
-        }
+        minlength: 1,
+        maxlength: 280,
+        trim: true,
     },
     thumbsUp: {
         type: Number,
