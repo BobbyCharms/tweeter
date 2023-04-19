@@ -3,7 +3,7 @@ const dateFormat = require('../utils/dateFormat');
 
 const twitSchema = new Schema({
     userId: {
-        type: Number,
+        type: String,
         primaryKey: true,
     },
     twitText: {

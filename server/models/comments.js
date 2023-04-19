@@ -3,11 +3,11 @@ const dateFormat = require('../utils/dateFormat');
 
 const commentSchema = new Schema({
     userId: {
-        type: Number,
+        type: String,
         required: true,
     },
     twitId: {
-        type: Number,
+        type: String,
         required: true,
     },
     commentText: {

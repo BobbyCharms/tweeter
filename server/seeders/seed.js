@@ -13,8 +13,13 @@ db.once('open', async () => {
 
     await User.create(userSeeds);
 
+    const dbUsers = await User.find({}, '_id')
+    const userIds = dbUsers.map(dbUser => dbUser._id);
+
     for (let i = 0; i < twitSeeds.length; i++) {
-      const { _id, userId } = await Twit.create(twitSeeds[i]);
+      const userId = userIds[Math.floor(Math.random() * userIds.length)].toString()
+      console.log(userId)
+      const { _id } = await Twit.create({ twitText: twitSeeds[i].twitText, userId: userId  } );
       const user = await User.findOneAndUpdate(
         { _id: new mongoose.Types.ObjectId(userId) },
         {
@@ -25,17 +30,17 @@ db.once('open', async () => {
       );
     }
 
-    for (let i = 0; i < commentSeeds.length; i++) {
-      const { _id, twitId } = await Comment.create(commentSeeds[i]);
-      const twit = await Twit.findOneAndUpdate(
-        { _id: new mongoose.Types.ObjectId(twitId) },
-        {
-          $addToSet: {
-            comments: _id,
-          },
-        }
-      );
-    }
+    // for (let i = 0; i < commentSeeds.length; i++) {
+    //   const { _id, twitId } = await Comment.create(commentSeeds[i]);
+    //   const twit = await Twit.findOneAndUpdate(
+    //     { _id: new mongoose.Types.ObjectId(twitId) },
+    //     {
+    //       $addToSet: {
+    //         comments: _id,
+    //       },
+    //     }
+    //   );
+    // }
 
   } catch (err) {
     console.error(err);
