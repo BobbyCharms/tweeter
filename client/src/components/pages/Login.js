@@ -48,10 +48,15 @@ const Login = (props) => {
       <div
         style={{ display: 'flex', justifyContent: 'end', marginTop: '40px' }}
       >
-        <Form>
+        <Form onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              value={formState.email}
+              onChange={handleChange}
+            />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
@@ -59,7 +64,12 @@ const Login = (props) => {
 
           <Form.Group className="col-12" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={formState.email}
+              onChange={handleChange}
+            />
           </Form.Group>
 
           <Button
