@@ -79,11 +79,41 @@ export const DELETE_TWIT = gql`
 `;
 
 export const ADD_COMMENT = gql`
+  mutation Mutation($twitId: ID!, $commentText: String!) {
+    addComment(twitId: $twitId, commentText: $commentText) {
+      _id
+      twitId
+      userId
+      commentText
+      thumbsUp
+      thumbsDown
+      createdAt
+    }
+  }
 `;
 
 export const EDIT_COMMENT = gql`
+  mutation Mutation($commentId: ID!, $commentText: String!) {
+    editComment(commentId: $commentId, commentText: $commentText) {
+      _id
+      twitId
+      userId
+      commentText
+      thumbsUp
+      thumbsDown
+      createdAt
+      updatedAt
+    }
+  }
 `;
 
 export const DELETE_COMMENT = gql`
+  mutation Mutation($commentId: ID!) {
+    deleteComment(commentId: $commentId) {
+      _id
+      twitId
+      userId
+    }
+  }
 `;
 
