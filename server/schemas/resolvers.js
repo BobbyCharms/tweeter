@@ -83,7 +83,7 @@ const resolvers = {
       throw new AuthenticationError("That's not your comment!");
     },
     deleteComment: async (parent, { commentId }, context) => {
-      const deletedComment = Comment.find({_id: commentId});
+      const deletedComment = await Comment.findOne({_id: commentId});
       if (context.user._id === deletedComment.userId) {
         return await Comment.findByIdAndDelete({commentId}) 
       }
