@@ -1,5 +1,4 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { Button, Form } from 'react-bootstrap';
 import React, { useState } from 'react';
 import loginImg from '../../assets/images/login.svg';
 import { useMutation } from '@apollo/client';
