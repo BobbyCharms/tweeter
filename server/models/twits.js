@@ -43,8 +43,8 @@ const twitSchema = new Schema({
   ],
 });
 
-twitSchema.pre('save', function (next) {
-  this.updatedAt = new Date();
+twitSchema.pre('findOneAndUpdate', function (next) {
+  this.set({ updatedAt: new Date() });
   next();
 });
 
