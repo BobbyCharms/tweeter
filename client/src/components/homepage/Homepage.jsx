@@ -1,4 +1,4 @@
-import Twit from "../Twit"
+import Twit from "../../twit/Twit"
 import twits from "../../utils/dummyTwitData"
 
 const newTwit = () => {
