@@ -1,7 +1,8 @@
 import { Button, Form } from 'react-bootstrap';
 import React, { useState } from 'react';
-import loginImg from '../../assets/images/login.svg';
 import { useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
+import loginImg from '../../assets/images/login.svg';
 import { LOGIN } from '../../utils/mutations';
 
 import Auth from '../../utils/auth';
@@ -79,14 +80,14 @@ const Login = (props) => {
           >
             Login
           </Button>
-          <a
+
+          <Link
+            to="/register"
             className="btn btn-warning btn-lg"
-            href="/Signup"
-            role="button"
             style={{ marginLeft: '20px', marginTop: '20px' }}
           >
             Sign Up
-          </a>
+          </Link>
         </Form>
       </div>
     </div>
