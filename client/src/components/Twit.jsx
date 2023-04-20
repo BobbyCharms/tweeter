@@ -1,6 +1,6 @@
 function Twit(props) {return(
     <div>
-        <p>{props.twit}</p>
+        <p>@{props.username}: {props.twit}</p>
     </div>
 )};
 
