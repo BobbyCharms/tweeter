@@ -1,59 +1,89 @@
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
+import { CREATE_USER } from '../../utils/mutations';
+
+import Auth from '../../utils/auth';
 
 function Register() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ name, email, password });
+  const [createUser, { error, data }] = useMutation(CREATE_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
-  return 
-  ( <Container>
-    <Row className="justify-content-md-center">
-      <Col md={6}>
-        <h2 className="my-4 text-center">Register</h2>
-        <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Form.Group>
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-          <Form.Group controlId="formEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+    try {
+      const { data } = await createUser({
+        variables: { ...formState },
+      });
 
-          <Form.Group controlId="formPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
+      Auth.login(data.createUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
-          <Button variant="primary" type="submit" style={{marginTop:'20px'}}>
-            Register
-          </Button>
-        </Form>
-      </Col>
-    </Row>
-  </Container>
-  )
-  }
+  return (
+    <Container>
+      <Row className="justify-content-md-center">
+        <Col md={6}>
+          <h2 className="my-4 text-center">Register</h2>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formName">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your desired username"
+                value={username}
+                onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter your desired password"
+                value={password}
+                onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Button
+              variant="primary"
+              type="submit"
+              style={{ marginTop: '20px' }}
+            >
+              Register
+            </Button>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
 export default Register;
