@@ -14,9 +14,14 @@ function Homepage() {
         <Link to="/">
           <p>Homepage</p>
         </Link>
-        <Link to="/login">
+        {loggedIn ? (
+          <button type="button" onClick={() => setLoggedIn(!loggedIn)}>
+            Log out
+          </button>
+        ) : (
+          <Link to="/login">
           <p>My Tweeter</p>
-        </Link>
+        </Link>  
       </div>
       {twits.map((item, index) => (
         <Twit key={index} username={item.username} twit={item.twit} />
