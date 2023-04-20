@@ -96,11 +96,14 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     editTwit: async (parent, { twitId, twitText }, context) => {
-      const editTwit = Twit.find({_id: twitId});
+      const editTwit = await Twit.findOne({_id: twitId});
+      console.log("editTwit:"  + editTwit);
+      console.log("editTwit:" + editTwit.userId);
+      console.log("contextId:" + context.user._id);
       if (context.user._id === editTwit.userId) {
         return await Twit.findOneAndUpdate(
-          {_id: twitId,
-          twitText: twitText},
+          {_id: twitId},
+          {twitText: twitText},
           { new: true, runValidators: true}
         );
       }
