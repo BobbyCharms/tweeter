@@ -55,19 +55,19 @@ const resolvers = {
       return { token, user }
     },
     deleteUser: async (parent, { userId, password }) => {
-      const user = await User.findByIdAnd({ userId })
+      const user = await User.findOne({ _id: userId })
 
-      const correctPw = await profile.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect password!');
       }
 
-      return await User.findByIdAndDelete({ userId })
+      return await User.findOneAndDelete({ _id: userId })
     },
     addComment: async (parent, { twitId, commentText }, context) => {
       if (context.user) {
-        return await Comment.create({ twitId, commentText })
+        return await Comment.create({ twitId, commentText, userId: context.user._id })
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -85,7 +85,7 @@ const resolvers = {
     deleteComment: async (parent, { commentId }, context) => {
       const deletedComment = await Comment.findOne({_id: commentId});
       if (context.user._id === deletedComment.userId) {
-        return await Comment.findByIdAndDelete({commentId}) 
+        return await Comment.findOneAndDelete({_id: commentId}) 
       }
       throw new AuthenticationError("That's not your comment!");
     },
@@ -109,7 +109,7 @@ const resolvers = {
     deleteTwit: async (parent, { twitId }, context) => {
       const deletedTwit = await Twit.findOne({_id: twitId});
       if (context.user._id === deletedTwit.userId) {
-        return await Twit.findByIdAndDelete({twitId}) 
+        return await Twit.findOneAndDelete({_id: twitId}) 
       }
       throw new AuthenticationError("That's not your twit!");
     },
