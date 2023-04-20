@@ -1,5 +1,5 @@
 import logo from "./assets/logo.jpg"
-import "./header.css"
+import "./Header.css";
 
 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 let today = new Date();
