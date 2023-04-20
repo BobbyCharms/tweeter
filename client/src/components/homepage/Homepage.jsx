@@ -10,7 +10,7 @@ const newTwit = () => {
 function Homepage() {
   return (
     <div>
-      <Register />
+      <Login />
       <div>
         <a href="#">
           <p>Homepage</p>
