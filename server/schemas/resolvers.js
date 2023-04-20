@@ -97,9 +97,6 @@ const resolvers = {
     },
     editTwit: async (parent, { twitId, twitText }, context) => {
       const editTwit = await Twit.findOne({_id: twitId});
-      console.log("editTwit:"  + editTwit);
-      console.log("editTwit:" + editTwit.userId);
-      console.log("contextId:" + context.user._id);
       if (context.user._id === editTwit.userId) {
         return await Twit.findOneAndUpdate(
           {_id: twitId},
@@ -110,7 +107,7 @@ const resolvers = {
       throw new AuthenticationError("That's not your twit!");
     },
     deleteTwit: async (parent, { twitId }, context) => {
-      const deletedTwit = Twit.find({_id: twitId});
+      const deletedTwit = await Twit.findOne({_id: twitId});
       if (context.user._id === deletedTwit.userId) {
         return await Twit.findByIdAndDelete({twitId}) 
       }
