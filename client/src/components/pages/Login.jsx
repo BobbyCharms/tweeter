@@ -63,16 +63,6 @@ const Login = (props) => {
 
           <Form.Group className="col-12" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-<<<<<<< HEAD
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-
-          <Button variant="warning  btn-lg" type="submit" style={{marginTop:'20px'}}>
-            Login
-          </Button>
-          <a className='btn btn-warning btn-lg' href='/Singup' role='button' style={{marginLeft:'20px',marginTop:'20px'}}>
-            Sing Up
-=======
             <Form.Control
               type="password"
               name="password"
@@ -96,19 +86,11 @@ const Login = (props) => {
             style={{ marginLeft: '20px', marginTop: '20px' }}
           >
             Sign Up
->>>>>>> 7065788f0c4e6d0edd400954fcebbdfb5dc1c998
           </a>
         </Form>
       </div>
     </div>
-<<<<<<< HEAD
-  )
-}
-
-export default Login;
-=======
   );
 };
 
 export default Login;
->>>>>>> 7065788f0c4e6d0edd400954fcebbdfb5dc1c998

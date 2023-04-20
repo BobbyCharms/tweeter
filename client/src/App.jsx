@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import Homepage from './components/homepage/Homepage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
-import Twit from './components/Twit';
+import Twit from './twit/Twit';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -52,8 +52,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/twit/:id" element={<Twit />} />
-            <Footer />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
