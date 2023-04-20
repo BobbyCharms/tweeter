@@ -18,8 +18,8 @@ function Homepage() {
           <p>My Tweeter</p>
         </a>
       </div>
-      {twits.map((item) => (
-        <Twit username={item.username} twit={item.twit} />
+      {twits.map((item, index) => (
+        <Twit key={index} username={item.username} twit={item.twit} />
       ))}
       <button onClick={newTwit}>+</button>
     </div>

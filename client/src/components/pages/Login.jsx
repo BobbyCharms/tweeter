@@ -12,11 +12,10 @@ const Login = (props) => {
   const [login, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-
+    const { type, value } = event.target;
     setFormState({
       ...formState,
-      [name]: value,
+      [type]: value,
     });
   };
 
@@ -66,7 +65,7 @@ const Login = (props) => {
             <Form.Control
               type="password"
               placeholder="Password"
-              value={formState.email}
+              value={formState.password}
               onChange={handleChange}
             />
           </Form.Group>
@@ -80,7 +79,7 @@ const Login = (props) => {
           </Button>
           <a
             className="btn btn-warning btn-lg"
-            href="/Singup"
+            href="/Signup"
             role="button"
             style={{ marginLeft: '20px', marginTop: '20px' }}
           >
