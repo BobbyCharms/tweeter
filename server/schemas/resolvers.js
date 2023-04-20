@@ -72,11 +72,11 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     editComment: async (parent, { commentId, commentText }, context) => {
-      const editComment = Comment.find({_id: commentId});
+      const editComment = await Comment.findOne({_id: commentId});
       if (context.user._id === editComment.userId) {
         return await Comment.findOneAndUpdate(
-          {_id: commentId,
-          commentText: commentText},
+          {_id: commentId},
+          {commentText: commentText},
           { new: true, runValidators: true}
         );
       }
