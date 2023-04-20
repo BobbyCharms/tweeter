@@ -4,11 +4,30 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    users: async () => {
+      return User.find().populate({
+        path: 'twits',
+        populate: {
+          path: 'comments'
+        }
+      });
+    },
+    singleUser: async (parent, { userId }) => {
+      return User.findOne({_id: userId}).populate({
+        path: 'twits',
+        populate: {
+          path: 'comments'
+        }
+      });
+    },
     twits: async () => {
       return Twit.find().populate("comments");
     },
     userTwits: async (parent, { userId }) => {
       return Twit.find({userId: userId}).populate("comments");
+    },
+    singleTwit: async (parent, { twitId }) => {
+      return Twit.findOne({_id: twitId}).populate("comments");
     }
   },
   Mutation: {
@@ -25,7 +44,7 @@ const resolvers = {
         throw new AuthenticationError('No user with this email found!');
       }
 
-      const correctPw = await profile.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect password!');
@@ -36,37 +55,37 @@ const resolvers = {
       return { token, user }
     },
     deleteUser: async (parent, { userId, password }) => {
-      const user = await User.findByIdAnd({ userId })
+      const user = await User.findOne({ _id: userId })
 
-      const correctPw = await profile.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
         throw new AuthenticationError('Incorrect password!');
       }
 
-      return await User.findByIdAndDelete({ userId })
+      return await User.findOneAndDelete({ _id: userId })
     },
     addComment: async (parent, { twitId, commentText }, context) => {
       if (context.user) {
-        return await Comment.create({ twitId, commentText })
+        return await Comment.create({ twitId, commentText, userId: context.user._id })
       }
       throw new AuthenticationError('You need to be logged in!');
     },
     editComment: async (parent, { commentId, commentText }, context) => {
-      const editComment = Comment.find({_id: commentId});
+      const editComment = await Comment.findOne({_id: commentId});
       if (context.user._id === editComment.userId) {
         return await Comment.findOneAndUpdate(
-          {_id: commentId,
-          commentText: commentText},
+          {_id: commentId},
+          {commentText: commentText},
           { new: true, runValidators: true}
         );
       }
       throw new AuthenticationError("That's not your comment!");
     },
     deleteComment: async (parent, { commentId }, context) => {
-      const deletedComment = Comment.find({_id: commentId});
-      if (context.user._id === deleteddComment.userId) {
-        return await Comment.findByIdAndDelete({commentId}) 
+      const deletedComment = await Comment.findOne({_id: commentId});
+      if (context.user._id === deletedComment.userId) {
+        return await Comment.findOneAndDelete({_id: commentId}) 
       }
       throw new AuthenticationError("That's not your comment!");
     },
@@ -77,20 +96,20 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     editTwit: async (parent, { twitId, twitText }, context) => {
-      const editTwit = Twit.find({_id: twitId});
+      const editTwit = await Twit.findOne({_id: twitId});
       if (context.user._id === editTwit.userId) {
         return await Twit.findOneAndUpdate(
-          {_id: twitId,
-          twitText: twitText},
+          {_id: twitId},
+          {twitText: twitText},
           { new: true, runValidators: true}
         );
       }
       throw new AuthenticationError("That's not your twit!");
     },
     deleteTwit: async (parent, { twitId }, context) => {
-      const deletedTwit = Twit.find({_id: twitId});
+      const deletedTwit = await Twit.findOne({_id: twitId});
       if (context.user._id === deletedTwit.userId) {
-        return await Twit.findByIdAndDelete({twitId}) 
+        return await Twit.findOneAndDelete({_id: twitId}) 
       }
       throw new AuthenticationError("That's not your twit!");
     },
