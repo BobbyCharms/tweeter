@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import Header from "./components/header/Header";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer";
 import Homepage from "./components/homepage/Homepage";
 
 // Construct our main GraphQL API endpoint
