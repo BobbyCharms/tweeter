@@ -39,3 +39,30 @@
   font-size: 14px;
   color: #212121;
 }
+
+.postActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.actionButton {
+  background-color: #ffeb3b;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #212121;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #ffd740;
+}
+
+.comments {
+  font-size: 12px;
+  color: #757575;
+}
