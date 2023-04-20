@@ -1,5 +1,5 @@
-import Twit from "../../twit/Twit";
-import twits from "../../utils/dummyTwitData";
+import Twit from '../../twit/Twit';
+import twits from '../../utils/dummyTwitData';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 
