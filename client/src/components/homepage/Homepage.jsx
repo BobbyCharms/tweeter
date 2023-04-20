@@ -4,7 +4,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const newTwit = () => {
-    //create a new twit
+  //create a new twit
+};
+
+function Homepage() {
+  return (
+    <div>
+      <Login />
+      <div>
+        <a href="#">
+          <p>Homepage</p>
+        </a>
+        <a href="#">
+          <p>My Tweeter</p>
+        </a>
+      </div>
+      {twits.map((item, index) => (
+        <Twit key={index} username={item.username} twit={item.twit} />
+      ))}
+      <button onClick={newTwit}>+</button>
+    </div>
+  );
 }
 
 function Homepage() {return(
