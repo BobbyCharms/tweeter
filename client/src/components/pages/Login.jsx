@@ -12,10 +12,10 @@ const Login = (props) => {
   const [login, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
-    const { type, value } = event.target;
+    const { name, value } = event.target;
     setFormState({
       ...formState,
-      [type]: value,
+      [name]: value,
     });
   };
 
@@ -51,6 +51,7 @@ const Login = (props) => {
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
+              name="email"
               placeholder="Enter email"
               value={formState.email}
               onChange={handleChange}
@@ -64,6 +65,7 @@ const Login = (props) => {
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
+              name="password"
               placeholder="Password"
               value={formState.password}
               onChange={handleChange}

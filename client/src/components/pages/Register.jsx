@@ -21,6 +21,7 @@ function Register() {
       ...formState,
       [name]: value,
     });
+    console.log(formState);
   };
 
   const handleSubmit = async (event) => {
@@ -47,8 +48,9 @@ function Register() {
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
+                name="username"
                 placeholder="Enter your desired username"
-                value={username}
+                value={formState.username}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -57,8 +59,9 @@ function Register() {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
+                name="email"
                 placeholder="Enter your email"
-                value={email}
+                value={formState.email}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -67,8 +70,9 @@ function Register() {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
+                name="password"
                 placeholder="Enter your desired password"
-                value={password}
+                value={formState.password}
                 onChange={handleChange}
               />
             </Form.Group>

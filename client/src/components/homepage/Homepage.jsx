@@ -1,6 +1,7 @@
 import Twit from '../Twit';
 import twits from '../../utils/dummyTwitData';
 import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 const newTwit = () => {
   //create a new twit
@@ -9,7 +10,7 @@ const newTwit = () => {
 function Homepage() {
   return (
     <div>
-      <Login />
+      <Register />
       <div>
         <a href="#">
           <p>Homepage</p>
