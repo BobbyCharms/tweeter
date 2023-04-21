@@ -16,6 +16,8 @@ import Register from './components/pages/Register';
 import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
 import Comment from './components/comments/comment';
+import commentsList from "./utils/commentsList";
+import ManyComments from './components/comments/manyComments';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -57,12 +59,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/twit/:id" element={<Twit />} />
           </Routes>
-          <Comment
-            title="comment"
-            username="haha"
-            comment="hello"
-            createdOn={new Date().toLocaleDateString()}
-          />
+          <ManyComments comments ={commentsList} />
           <Footer />
         </div>
       </Router>

@@ -2,9 +2,7 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import './comments.css';
-import commentsList from "../../utils/commentsList";
 import { HandThumbsUp, HandThumbsDown, Chat } from 'react-bootstrap-icons';
-import manyComments from "./manyComments";
 
 const containerStyles = {
     height: "auto"
