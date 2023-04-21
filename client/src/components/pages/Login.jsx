@@ -6,7 +6,7 @@ import { LOGIN } from '../../utils/mutations';
 // import styles from './Login.css/inline';
 import { login } from '../../utils/auth';
 // hooho
-import styles from './Login.css';
+import styles from './Login.css?inline';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -101,6 +101,6 @@ const Login = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

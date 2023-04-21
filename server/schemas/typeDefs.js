@@ -28,6 +28,7 @@ const typeDefs = gql`
     _id: ID
     twitId: ID
     userId: ID
+    username: String
     commentText: String
     thumbsUp: Int
     thumbsDown: Int

@@ -132,6 +132,7 @@ export const QUERY_SINGLE_TWIT = gql`
         _id
         twitId
         userId
+        username
         commentText
         thumbsUp
         thumbsDown

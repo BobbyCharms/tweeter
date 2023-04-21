@@ -11,6 +11,7 @@ function ManyTwits({ twits }) {
           twit={item.twitText}
           userId={item.userId}
           id={item._id}
+          createdAt={item.createdAt}
         />
       ))}
     </div>
