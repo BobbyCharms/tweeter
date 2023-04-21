@@ -15,6 +15,7 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import SingleUserTwit from './components/pages/SingleUserTwit';
 import LoggedUserTwit from './components/pages/LoggedUserTwit';
+import SpecificTwit from './components/pages/SpecificTwit';
 import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
 
@@ -58,7 +59,7 @@ function App() {
             <Route path="/user/:id" element={<LoggedUserTwit />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/twit/:id" element={<Twit />} />
+            <Route path="/twit/:id" element={<SpecificTwit />} />
           </Routes>
           <Footer />
         </div>

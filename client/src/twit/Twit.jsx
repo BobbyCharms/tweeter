@@ -17,11 +17,6 @@ const cardStyles = {
   width: '36rem',
 };
 
-// const alignRight = {
-//   justifySelf: 'flex-end',
-// };
-
-// function Twit(props) {
 const Twit = (props) => {
   const [userId, setUserId] = useState('');
   const [isDeleted, setIsDeleted] = useState(false);
@@ -73,9 +68,15 @@ const Twit = (props) => {
               className="d-flex justify-content-start"
               style={containerStyles}
             >
-              <Chat className="mx-3" />
-              <HandThumbsUp className="mx-3" />
-              <HandThumbsDown className="mx-3" />
+              {!window.location.href.split('/').includes('twit') ? (
+                <Link to={`/twit/${props.id}`}>
+                  <Chat className="mx-3" />
+                </Link>
+              ) : (
+                <></>
+              )}
+              {/* <HandThumbsUp className="mx-3" />
+              <HandThumbsDown className="mx-3" /> */}
             </Container>
           </Card.Body>
         </Card>
