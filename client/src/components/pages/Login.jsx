@@ -8,7 +8,6 @@ import { login } from '../../utils/auth';
 
 // hooho
 
-
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [loginMutation, { error, data }] = useMutation(LOGIN);
@@ -44,55 +43,61 @@ const Login = (props) => {
 
   return (
     <div className={styles.container}>
-    <div className={styles.form}>
-      <h1>Login</h1>
-      <Form onSubmit={handleFormSubmit}></Form>
-    <div className="d-flex justify-content-around">
-      <div
-        style={{ display: 'flex', justifyContent: 'end', marginTop: '40px' }}
-      >
-        <Form onSubmit={handleFormSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Group className="col-12" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-          </Form.Group>
-
-          <Button
-            variant="warning  btn-lg"
-            type="submit"
-            style={{ marginTop: '20px' }}
+      <div className={styles.form}>
+        <h1>Login</h1>
+        <Form onSubmit={handleFormSubmit}></Form>
+        <div className="d-flex justify-content-around">
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'end',
+              marginTop: '40px',
+            }}
           >
-            Login
-          </Button>
+            <Form onSubmit={handleFormSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Enter email"
+                  value={formState.email}
+                  onChange={handleChange}
+                />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
 
-          <Link
-            to="/register"
-            className="btn btn-warning btn-lg"
-            style={{ marginLeft: '20px', marginTop: '20px' }}
-          >
-            Sign Up
-          </Link>
-        </Form>
+              <Form.Group className="col-12" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Button
+                variant="warning  btn-lg"
+                type="submit"
+                style={{ marginTop: '20px' }}
+              >
+                Login
+              </Button>
+
+              <Link
+                to="/register"
+                className="btn btn-warning btn-lg"
+                style={{ marginLeft: '20px', marginTop: '20px' }}
+              >
+                Sign Up
+              </Link>
+            </Form>
+          </div>
+        </div>
       </div>
     </div>
   );
