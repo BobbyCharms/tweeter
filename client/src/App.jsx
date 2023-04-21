@@ -19,7 +19,7 @@ import SpecificTwit from './components/pages/SpecificTwit';
 import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
 import Comment from './components/comments/comment';
-import commentsList from "./utils/commentsList";
+import commentsList from './utils/commentsList';
 import ManyComments from './components/comments/manyComments';
 
 // Construct our main GraphQL API endpoint
@@ -62,7 +62,6 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/twit/:id" element={<SpecificTwit />} />
           </Routes>
-          <ManyComments comments ={commentsList} />
           <Footer />
         </div>
       </Router>

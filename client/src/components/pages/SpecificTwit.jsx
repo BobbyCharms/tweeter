@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_SINGLE_TWIT } from '../../utils/queries';
 import Twit from '../../twit/Twit.jsx';
-// import CommentList from '../../twit/CommentList';
+import manyComments from '../comments/manyComments.jsx';
 
 const SpecificTwit = () => {
   const { id } = useParams();
@@ -28,7 +28,11 @@ const SpecificTwit = () => {
             userId={twit.userId}
             id={twit._id}
           />
-          {/* {twit.comments.length > 0 ? <CommentList /> : <div>No comments</div>} */}
+          {twit.comments.length > 0 ? (
+            <manyComments comments={twit.comments} />
+          ) : (
+            <div className="text-center">No comments</div>
+          )}
         </div>
       )}
     </>
