@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
+import { login } from '../../utils/auth';
 
 // function Login() {
 const Login = (props) => {
@@ -26,7 +26,7 @@ const Login = (props) => {
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      login(data.login.token);
     } catch (e) {
       console.error(e);
     }
