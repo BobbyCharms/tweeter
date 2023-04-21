@@ -1,7 +1,6 @@
-import Twit from '../../twit/Twit';
-import twits from '../../utils/dummyTwitData';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ManyTwits from '../../twit/manyTwits';
 import { loggedIn, logout } from '../../utils/auth';
 
 const newTwit = () => {
@@ -26,9 +25,7 @@ function Homepage() {
           // Link to mytweeter
         )}
       </div>
-      {twits.map((item, index) => (
-        <Twit key={index} username={item.username} twit={item.twit} />
-      ))}
+      <ManyTwits />
       <button onClick={newTwit}>+</button>
     </div>
   );
