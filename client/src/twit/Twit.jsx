@@ -17,9 +17,9 @@ const cardStyles = {
   width: '36rem',
 };
 
-const alignRight = {
-  justifySelf: 'flex-end',
-};
+// const alignRight = {
+//   justifySelf: 'flex-end',
+// };
 
 // function Twit(props) {
 const Twit = (props) => {
@@ -56,14 +56,12 @@ const Twit = (props) => {
         style={containerStyles}
       >
         <Card style={cardStyles}>
-          <Card.Header as="h5" className="d-flex">
+          <Card.Header as="h5" className="d-flex justify-content-between">
             <Link to={`/${props.userId}`}>
               <b>@{props.username}:</b>
             </Link>
             {props.userId === userId && loggedIn() ? (
-              <button style={alignRight} onClick={handleDelete}>
-                x
-              </button>
+              <button onClick={handleDelete}>x</button>
             ) : (
               <></>
             )}
