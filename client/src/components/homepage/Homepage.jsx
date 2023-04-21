@@ -22,6 +22,7 @@ function Homepage() {
           <Link to="/login">
           <p>My Tweeter</p>
         </Link>  
+        )}
       </div>
       {twits.map((item, index) => (
         <Twit key={index} username={item.username} twit={item.twit} />
