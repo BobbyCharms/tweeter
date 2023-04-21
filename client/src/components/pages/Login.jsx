@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 
 import { login } from '../../utils/auth';
+
 // hooho
 import styles from './Login.css';
 
-// function Login() {
+
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [loginMutation, { error, data }] = useMutation(LOGIN);
@@ -30,6 +31,7 @@ const Login = (props) => {
       });
 
       login(data.login.token);
+      console.log(data.login.user._id);
     } catch (e) {
       console.error(e);
     }
