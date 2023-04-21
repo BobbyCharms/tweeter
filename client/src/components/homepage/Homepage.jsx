@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ManyTwits from '../../twit/manyTwits';
 import { loggedIn, logout } from '../../utils/auth';
 
-import styles from './Homepage.css';
+import styles from './Homepage.css?inline';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_TWITS } from '../../utils/queries';
@@ -14,7 +14,6 @@ const Homepage = () => {
 
   return <>{loading ? <div>Loading...</div> : <ManyTwits twits={twits} />}</>;
 };
-
 
 // const newTwit = () => {
 //   //create a new twit
