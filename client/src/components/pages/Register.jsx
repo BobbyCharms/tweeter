@@ -3,7 +3,7 @@ import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
+import { login } from '../../utils/auth';
 
 function Register() {
   const [formState, setFormState] = useState({
@@ -32,7 +32,7 @@ function Register() {
         variables: { ...formState },
       });
 
-      Auth.login(data.createUser.token);
+      login(data.createUser.token);
     } catch (e) {
       console.error(e);
     }
