@@ -5,10 +5,19 @@ export function getUser() {
   return decode(getToken());
 }
 
+export function isTokenExpired(token) {
+  const decoded = decode(token);
+  if (decoded.exp < Math.floor(Date.now() / 1000)) {
+    localStorage.removeItem('id_token');
+    return true;
+  }
+  return false;
+}
+
 // return `true` or `false` if token exists (does not verify if it's expired yet)
 export function loggedIn() {
   const token = getToken();
-  return token ? true : false;
+  return token && !isTokenExpired(token);
 }
 
 export function getToken() {
