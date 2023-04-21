@@ -1,4 +1,4 @@
-import twits from '../utils/dummyTwitData';
+// import twits from '../utils/dummyTwitData';
 import Twit from './Twit';
 
 function ManyTwits() {return(
