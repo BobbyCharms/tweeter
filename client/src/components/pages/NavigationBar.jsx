@@ -1,18 +1,20 @@
 import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import Homepage from '../homepage/Homepage';
-import Login from './Login';
+import { Navbar, Nav, Container,Button } from 'react-bootstrap';
 import  {Link}from 'react-router-dom';
 const NavigationBar = () => {
   return (
     <Navbar bg="light" expand="lg">
-      <Container style={{ height: 'auto '}} >
-        <Navbar id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Link to='/' style={{marginRight:'10px'}}>Homepage</Link>
-            <Link to='/register'>Login</Link>
+      <Container>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto " style={{display:'flex',flexDirection:"column"}}>
+            <div>
+            <Button variant="warning" href='/' style={{marginRight:'10px'}}>Homepage</Button>{' '}
+            </div>
+            <div>
+            <Button variant="warning" href='login'>Login</Button>{' '}
+            </div>
           </Nav>
-        </Navbar>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
