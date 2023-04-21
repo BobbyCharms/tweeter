@@ -24,6 +24,7 @@ const alignRight = {
 // function Twit(props) {
 const Twit = (props) => {
   const [userId, setUserId] = useState('');
+  const [isDeleted, setIsDeleted] = useState(false);
 
   if (loggedIn()) {
     useEffect(() => {
@@ -38,12 +39,15 @@ const Twit = (props) => {
       const { data } = await deleteTwitMutation({
         variables: { twitId: props.id },
       });
-      // reload just the component that had the deleted twit
-      window.location.reload();
+      data ? setIsDeleted(true) : setIsDeleted(false);
     } catch (e) {
       console.error(e);
     }
   };
+
+  if (isDeleted) {
+    return null; // If the Twit has been deleted, render nothing
+  }
 
   return (
     <div className="twit">
