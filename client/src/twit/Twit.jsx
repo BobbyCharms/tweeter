@@ -17,11 +17,6 @@ const cardStyles = {
   width: '36rem',
 };
 
-// const alignRight = {
-//   justifySelf: 'flex-end',
-// };
-
-// function Twit(props) {
 const Twit = (props) => {
   const [userId, setUserId] = useState('');
   const [isDeleted, setIsDeleted] = useState(false);

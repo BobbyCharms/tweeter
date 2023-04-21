@@ -8,8 +8,9 @@ import Twit from '../../twit/Twit.jsx';
 const SpecificTwit = () => {
   const { id } = useParams();
   const { loading, error, data } = useQuery(QUERY_SINGLE_TWIT, {
-    variables: { _id: id },
+    variables: { twitId: id },
   });
+  console.log(data);
   if (error) {
     return <div>Error</div>;
   }
@@ -21,7 +22,12 @@ const SpecificTwit = () => {
         <div>Loading...</div>
       ) : (
         <div>
-          <Twit twit={twit} />
+          <Twit
+            username={twit.username}
+            twit={twit.twitText}
+            userId={twit.userId}
+            id={twit._id}
+          />
           {/* {twit.comments.length > 0 ? <CommentList /> : <div>No comments</div>} */}
         </div>
       )}
