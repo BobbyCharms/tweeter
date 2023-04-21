@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 
 import { login } from '../../utils/auth';
+
+// hooho
 import styles from './Login.css';
 
 
@@ -94,8 +96,6 @@ const Login = (props) => {
         </Form>
       </div>
     </div>
-    </div>
-  </div>
   );
 };
 
