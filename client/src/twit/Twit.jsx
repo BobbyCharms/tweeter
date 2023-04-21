@@ -1,4 +1,5 @@
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import './Twit.css';
@@ -13,13 +14,14 @@ const cardStyles = {
 };
 
 function Twit(props) {
-  console.log(props)
   return (
     <div className="twit">
         <Container className="d-flex justify-content-center mb-5" style={containerStyles}>
       <Card style={cardStyles}>
         <Card.Header as="h5">
-          <b>@{props.username}:</b>
+            <Link to={`/${props.userId}`}>
+                <b>@{props.username}:</b>
+            </Link>
         </Card.Header>
         <Card.Body>
           <Card.Title>{props.twit}</Card.Title>

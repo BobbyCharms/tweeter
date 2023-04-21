@@ -18,7 +18,9 @@ const SingleUserTwit =  () => {
             </div>
         );
     }
-    const twits = data?.twits || [];
+    const twits = data?.userTwits || [];
+    console.log(data);
+    console.log(twits);
     return (
         <>
             {loading ? (

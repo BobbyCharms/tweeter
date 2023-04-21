@@ -54,7 +54,7 @@ function App() {
           path="/timeline/:id"
           element={<Timeline />}
         /> */}
-            <Route path="/:id" element={<SingleUserTwit />} />
+            <Route path="/:userId" element={<SingleUserTwit />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/twit/:id" element={<Twit />} />
