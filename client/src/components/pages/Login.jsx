@@ -6,7 +6,11 @@ import { LOGIN } from '../../utils/mutations';
 
 import { login } from '../../utils/auth';
 // hooho
+<<<<<<< HEAD
 //import styles from './Login.module.css';
+=======
+import styles from './Login.css';
+>>>>>>> f98b9ba4170c8ac6bb733f1feadfad873bfb8d66
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
