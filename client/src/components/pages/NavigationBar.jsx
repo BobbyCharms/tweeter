@@ -10,6 +10,7 @@ const NavigationBar = () => {
     let userId = '/' + getUser().data._id;
     console.log(getUser().data._id);
   }
+  console.log(loggedIn());
 
   return (
     <Navbar bg="light" expand="lg">
@@ -26,7 +27,7 @@ const NavigationBar = () => {
                 </Button>{' '}
               </Link>
             </div>
-            {loggedIn() ? (
+            {!loggedIn() ? (
               <>
                 <div>
                   <Link to="/login">
