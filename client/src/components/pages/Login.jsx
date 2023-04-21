@@ -6,7 +6,7 @@ import { LOGIN } from '../../utils/mutations';
 
 import { login } from '../../utils/auth';
 // hooho
-import styles from './Login.module.css';
+import styles from './Login.css';
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -88,8 +88,6 @@ const Login = () => {
         </Form>
       </div>
     </div>
-    </div>
-  </div>
   );
 };
 
