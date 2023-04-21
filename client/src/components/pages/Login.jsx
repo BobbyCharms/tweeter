@@ -4,12 +4,12 @@ import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 
-import Auth from '../../utils/auth';
+import { login } from '../../utils/auth';
 
 // function Login() {
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN);
+  const [loginMutation, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,11 +22,12 @@ const Login = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await login({
+      console.log(formState);
+      const { data } = await loginMutation({
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      login(data.login.token);
     } catch (e) {
       console.error(e);
     }
