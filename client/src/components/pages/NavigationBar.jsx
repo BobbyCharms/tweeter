@@ -2,12 +2,13 @@ import React from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { loggedIn, logout } from '../../utils/auth';
-import { getToken } from '../../utils/auth';
+import { getToken, getUser } from '../../utils/auth';
 
 const NavigationBar = () => {
   let userId = '';
   if (getToken()) {
-    let userId = '/' + getToken().user._id;
+    let userId = '/' + getUser().data._id;
+    console.log(getUser().data._id);
   }
 
   return (
