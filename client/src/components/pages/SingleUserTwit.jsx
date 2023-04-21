@@ -5,12 +5,13 @@ import { QUERY_USER_TWITS } from '../../utils/queries';
 import ManyTwits from '../../twit/manyTwits';
 
 const SingleUserTwit = () => {
-  const { userId } = useParams();
+  const { id } = useParams();
+  console.log(useParams());
   const { loading, error, data } = useQuery(QUERY_USER_TWITS, {
-    variables: { userId: userId },
+    variables: { userId: id },
   });
   if (error) {
-    return <div>Error</div>;
+    return <div>Denver</div>;
   }
   const twits = data?.userTwits || [];
   console.log(data);
