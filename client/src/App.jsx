@@ -60,6 +60,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/twit/:id" element={<SpecificTwit />} />
+            <Route path="/user/:id" element={<LoggedUserTwit />} />
+            <Route path=":id" element={<SingleUserTwit />} />
           </Routes>
           <Footer />
         </div>

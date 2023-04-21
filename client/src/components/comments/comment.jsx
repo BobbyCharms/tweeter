@@ -20,14 +20,12 @@ function Comment(props) {
     >
       <Card style={cardStyles}>
         <Card.Header as="h5">
-          <b>{props.title}</b>
+          <b>@{props.username}</b>
         </Card.Header>
         <Card.Body>
           <Card.Title>{props.comment}</Card.Title>
-          <Card.Text>
-            {props.username}
-            {props.createdOn}
-          </Card.Text>
+          <Card.Text>{props.createdOn}</Card.Text>
+
           <Container
             className="d-flex justify-content-start"
             style={containerStyles}

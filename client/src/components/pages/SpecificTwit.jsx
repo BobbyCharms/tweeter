@@ -28,8 +28,9 @@ const SpecificTwit = () => {
             twit={twit.twitText}
             userId={twit.userId}
             id={twit._id}
+            createdAt={twit.createdAt}
           />
-          {twit.comments.length > 0 ? (
+          {twit.comments?.length > 0 ? (
             <ManyComments comments={twit.comments} />
           ) : (
             <div className="text-center">No comments</div>

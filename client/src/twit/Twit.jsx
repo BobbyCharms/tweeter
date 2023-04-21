@@ -63,7 +63,7 @@ const Twit = (props) => {
           </Card.Header>
           <Card.Body>
             <Card.Title>{props.twit}</Card.Title>
-            <Card.Text>{props.createdOn}</Card.Text>
+            <Card.Text>{props.createdAt}</Card.Text>
             <Container
               className="d-flex justify-content-start"
               style={containerStyles}
