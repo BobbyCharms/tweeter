@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ManyTwits from '../../twit/manyTwits';
 import { loggedIn, logout } from '../../utils/auth';
+
+import styles from './Homepage.css';
+
 import { useQuery } from '@apollo/client';
 import { QUERY_TWITS } from '../../utils/queries';
 
@@ -12,15 +15,16 @@ const Homepage = () => {
   return <>{loading ? <div>Loading...</div> : <ManyTwits twits={twits} />}</>;
 };
 
-const newTwit = () => {
-  //create a new twit
-};
+
+// const newTwit = () => {
+//   //create a new twit
+// };
 
 // function Homepage() {
 //   return (
-//     <div>
-//       <div>
-//         <Link to="/">
+//     <div className={styles.container}>
+//       <div className={styles.header}>
+//         <Link to="/" className={styles.link}>
 //           <p>Homepage</p>
 //         </Link>
 //         {loggedIn() ? (
@@ -28,14 +32,17 @@ const newTwit = () => {
 //             Log out
 //           </button>
 //         ) : (
-//           <Link to="/login">
+//           <Link to="/login" className={styles.link}>
 //             <p>Login</p>
 //           </Link>
-//           // Link to mytweeter
 //         )}
 //       </div>
-//       <ManyTwits />
-//       <button onClick={newTwit}>+</button>
+//       <div className={styles.twitsContainer}>
+//         <ManyTwits />
+//         <button onClick={newTwit} className={styles.newTwitButton}>
+//           +
+//         </button>
+//       </div>
 //     </div>
 //   );
 // }

@@ -8,6 +8,9 @@ import { login } from '../../utils/auth';
 
 // hooho
 
+import styles from './Login.css';
+
+
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [loginMutation, { error, data }] = useMutation(LOGIN);
@@ -98,8 +101,6 @@ const Login = (props) => {
             </Form>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 
