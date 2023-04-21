@@ -11,9 +11,6 @@ function Homepage() {
   return (
     <div>
       <div>
-        <Link to="/">
-          <p>Homepage</p>
-        </Link>
         {/* {loggedIn ? (
           <button type="button" onClick={() => setLoggedIn(!loggedIn)}>
             Log out
