@@ -19,13 +19,12 @@ function Comment(props) {
     <Container className="d-flex justify-content-center mb-5" style={containerStyles}>
       <Card style={cardStyles}>
         <Card.Header as="h5">
-          <b>@{props.title}:</b>
+          <b>{props.title}</b>
         </Card.Header>
         <Card.Body>
           <Card.Title>{props.comment}</Card.Title>
           <Card.Text>{props.username}{props.createdOn}</Card.Text>
           <Container className="d-flex justify-content-start" style={containerStyles}>
-            <Chat className="mx-3"/>
             <HandThumbsUp className="mx-3"/>
             <HandThumbsDown className="mx-3"/>
           </Container>
