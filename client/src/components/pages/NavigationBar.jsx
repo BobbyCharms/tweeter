@@ -13,46 +13,66 @@ const NavigationBar = () => {
   console.log(loggedIn());
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav
-            className="me-auto "
-            style={{ display: 'flex', flexDirection: 'column' }}
-          >
-            <div>
-              <Link to="/">
-                <Button variant="warning" style={{ marginRight: '10px' }}>
-                  Homepage
-                </Button>{' '}
-              </Link>
-            </div>
-            {!loggedIn() ? (
-              <>
-                <div>
-                  <Link to="/login">
-                    <Button variant="warning">Login</Button>{' '}
-                  </Link>
-                </div>
-              </>
-            ) : (
-              <>
-                <div>
-                  <Link to={`/user/${getUser().data._id}`}>
-                    <Button variant="warning">My Twits</Button>{' '}
-                  </Link>
-                </div>
-                <div>
-                  <Button variant="warning" onClick={() => logout()}>
-                    Logout
+    <Container fluid style={{ width: '100vw', paddingLeft: '0px' }}>
+      <Navbar.Collapse
+        id="basic-navbar-nav"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          backgroundColor: '#FFE600',
+          paddingLeft: '0px',
+          paddingRight: '0px',
+        }}
+      >
+        <Nav
+          className="me-auto "
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignContent: 'center',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginBottom: '10px',
+          }}
+        >
+          <div>
+            <Link to="/">
+              <Button variant="warning" style={{ marginRight: '10px' }}>
+                Home
+              </Button>{' '}
+            </Link>
+          </div>
+          {!loggedIn() ? (
+            <>
+              <div>
+                <Link to="/login">
+                  <Button variant="warning">Login</Button>{' '}
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <div>
+                <Link to={`/user/${getUser().data._id}`}>
+                  <Button variant="warning" style={{ marginRight: '10px' }}>
+                    My Twits
                   </Button>{' '}
-                </div>
-              </>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+                </Link>
+              </div>
+              <div>
+                <Button
+                  style={{ marginRight: '10px' }}
+                  variant="warning"
+                  onClick={() => logout()}
+                >
+                  Logout
+                </Button>{' '}
+              </div>
+            </>
+          )}
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
   );
 };
 

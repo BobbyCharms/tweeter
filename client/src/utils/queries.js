@@ -121,6 +121,7 @@ export const QUERY_SINGLE_TWIT = gql`
     singleTwit(twitId: $twitId) {
       _id
       userId
+      username
       twitText
       thumbsUp
       thumbsDown
