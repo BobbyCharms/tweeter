@@ -5,13 +5,12 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 
 import { login } from '../../utils/auth';
-import styles from './Login.css';
+// hooho
+import styles from './Login.module.css';
 
-
-// function Login() {
-const Login = (props) => {
+const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [loginMutation, { error, data }] = useMutation(LOGIN);
+  const [loginMutation] = useMutation(LOGIN);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -43,13 +42,8 @@ const Login = (props) => {
 
   return (
     <div className={styles.container}>
-    <div className={styles.form}>
-      <h1>Login</h1>
-      <Form onSubmit={handleFormSubmit}></Form>
-    <div className="d-flex justify-content-around">
-      <div
-        style={{ display: 'flex', justifyContent: 'end', marginTop: '40px' }}
-      >
+      <div className={styles.form}>
+        <h1>Login</h1>
         <Form onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -94,9 +88,6 @@ const Login = (props) => {
         </Form>
       </div>
     </div>
-    </Form>
-    </div>
-  </div>
   );
 };
 
