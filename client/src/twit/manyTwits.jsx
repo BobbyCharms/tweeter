@@ -6,7 +6,7 @@ function ManyTwits({twits}) {
     return(
     <div>
         {twits.map((item, index) => (
-        <Twit key={index} username={item.username} twit={item.twitText} />
+        <Twit key={index} username={item.username} twit={item.twitText} userId={item.userId} />
         ))}
     </div>
 )}
