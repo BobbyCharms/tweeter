@@ -8,7 +8,7 @@ const NavigationBar = () => {
   let userId = '';
   if (getToken()) {
     let userId = '/' + getUser().data._id;
-    console.log(getUser().data._id);
+    console.log(userId);
   }
   console.log(loggedIn());
 
@@ -38,7 +38,7 @@ const NavigationBar = () => {
             ) : (
               <>
                 <div>
-                  <Link to={userId}>
+                  <Link to={`/user/${getUser().data._id}`}>
                     <Button variant="warning">My Twits</Button>{' '}
                   </Link>
                 </div>

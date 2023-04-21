@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER_TWITS } from '../../utils/queries';
 import ManyTwits from '../../twit/manyTwits';
-import { getToken } from '../../utils/auth';
+import { getToken, getUser } from '../../utils/auth';
 
 const LoggedUserTwit = () => {
-  const userId = getToken().user._id;
+  const userId = getUser().data._id;
 
   const { loading, error, data } = useQuery(QUERY_USER_TWITS, {
     variables: { userId: userId },
