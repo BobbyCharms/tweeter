@@ -19,7 +19,6 @@ import SpecificTwit from './components/pages/SpecificTwit';
 import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
 import Comment from './components/comments/comment';
-import commentsList from './utils/commentsList';
 import ManyComments from './components/comments/manyComments';
 
 // Construct our main GraphQL API endpoint

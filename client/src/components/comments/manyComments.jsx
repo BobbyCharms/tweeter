@@ -7,10 +7,11 @@ function ManyComments({ comments }) {
       {comments.map((item, index) => (
         <Comment
           key={index}
-          title={item.title}
           username={item.username}
-          comment={item.comment}
-          createdOn={item.createdOn}
+          comment={item.commentText}
+          createdOn={item.createdAt}
+          userId={item.userId}
+          id={item._id}
         />
       ))}
     </div>
