@@ -73,7 +73,9 @@ const Twit = (props) => {
               className="d-flex justify-content-start"
               style={containerStyles}
             >
-              <Chat className="mx-3" />
+              <Link to={`/twit/${props.id}`}>
+                <Chat className="mx-3" />
+              </Link>
               <HandThumbsUp className="mx-3" />
               <HandThumbsDown className="mx-3" />
             </Container>
