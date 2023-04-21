@@ -14,6 +14,7 @@ const typeDefs = gql`
   type Twit {
     _id: ID
     userId: ID
+    username: String
     twitText: String
     thumbsUp: Int
     thumbsDown: Int
