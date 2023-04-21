@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import './Twit.css';
 import { HandThumbsUp, HandThumbsDown, Chat } from 'react-bootstrap-icons';
 import { DELETE_TWIT } from '../utils/mutations';
-import { getUser, getToken, loggedIn } from '../utils/auth';
+import { getUser, loggedIn } from '../utils/auth';
 import { useMutation } from '@apollo/client';
 
 const containerStyles = {
@@ -18,20 +18,32 @@ const cardStyles = {
 };
 
 const alignRight = {
-  textAlign: 'right',
+  justifySelf: 'flex-end',
 };
 
 // function Twit(props) {
 const Twit = (props) => {
-  const [logIn, setLoggedIn] = useState(loggedIn());
   const [userId, setUserId] = useState('');
 
-  if (logIn) {
+  if (loggedIn()) {
     useEffect(() => {
       setUserId(getUser().data._id);
     });
   }
   const [deleteTwitMutation, { error, data }] = useMutation(DELETE_TWIT);
+
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await deleteTwitMutation({
+        variables: { twitId: props.id },
+      });
+      // reload just the component that had the deleted twit
+      window.location.reload();
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <div className="twit">
@@ -40,12 +52,14 @@ const Twit = (props) => {
         style={containerStyles}
       >
         <Card style={cardStyles}>
-          <Card.Header as="h5">
+          <Card.Header as="h5" className="d-flex">
             <Link to={`/${props.userId}`}>
               <b>@{props.username}:</b>
             </Link>
-            {props.userId === userId && logIn ? (
-              <div style={alignRight}>x</div>
+            {props.userId === userId && loggedIn() ? (
+              <button style={alignRight} onClick={handleDelete}>
+                x
+              </button>
             ) : (
               <></>
             )}
