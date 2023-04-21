@@ -97,6 +97,7 @@ const resolvers = {
       if (context.user) {
         return await Twit.create({
           userId: context.user._id,
+          username: context.user.username,
           twitText: twitText,
         });
       }
