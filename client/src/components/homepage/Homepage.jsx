@@ -16,4 +16,28 @@ const newTwit = () => {
   //create a new twit
 };
 
+// function Homepage() {
+//   return (
+//     <div>
+//       <div>
+//         <Link to="/">
+//           <p>Homepage</p>
+//         </Link>
+//         {loggedIn() ? (
+//           <button type="button" onClick={() => logout()}>
+//             Log out
+//           </button>
+//         ) : (
+//           <Link to="/login">
+//             <p>Login</p>
+//           </Link>
+//           // Link to mytweeter
+//         )}
+//       </div>
+//       <ManyTwits />
+//       <button onClick={newTwit}>+</button>
+//     </div>
+//   );
+// }
+
 export default Homepage;

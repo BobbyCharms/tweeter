@@ -2,8 +2,14 @@ import React from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { loggedIn, logout } from '../../utils/auth';
+import { getToken } from '../../utils/auth';
 
 const NavigationBar = () => {
+  let userId = '';
+  if (getToken()) {
+    let userId = '/' + getToken().user._id;
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -26,14 +32,14 @@ const NavigationBar = () => {
                     <Button variant="warning">Login</Button>{' '}
                   </Link>
                 </div>
-                <div>
-                  <Link to="/:id">
-                    <Button variant="warning">My Twits</Button>{' '}
-                  </Link>
-                </div>
               </>
             ) : (
               <>
+                <div>
+                  <Link to={userId}>
+                    <Button variant="warning">My Twits</Button>{' '}
+                  </Link>
+                </div>
                 <div>
                   <Button variant="warning" onClick={() => logout()}>
                     Logout
