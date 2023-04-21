@@ -2,53 +2,37 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ManyTwits from '../../twit/manyTwits';
 import { loggedIn, logout } from '../../utils/auth';
-import { useQuery } from '@apollo/client';
-import { QUERY_TWITS } from '../../utils/queries';
-
-const Homepage = () => {
-    const { loading, data } = useQuery(QUERY_TWITS);
-    const twits = data?.twits || [];
-
-
-    return (
-        <>
-        {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ManyTwits
-              twits={twits}
-            />
-          )}
-        </>
-    )
-}
+import styles from './Homepage.module.css';
 
 const newTwit = () => {
   //create a new twit
 };
 
-// function Homepage() {
-//   return (
-//     <div>
-//       <div>
-//         <Link to="/">
-//           <p>Homepage</p>
-//         </Link>
-//         {loggedIn() ? (
-//           <button type="button" onClick={() => logout()}>
-//             Log out
-//           </button>
-//         ) : (
-//           <Link to="/login">
-//             <p>Login</p>
-//           </Link>
-//           // Link to mytweeter
-//         )}
-//       </div>
-//       <ManyTwits />
-//       <button onClick={newTwit}>+</button>
-//     </div>
-//   );
-// }
+function Homepage() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <Link to="/" className={styles.link}>
+          <p>Homepage</p>
+        </Link>
+        {loggedIn() ? (
+          <button type="button" onClick={() => logout()}>
+            Log out
+          </button>
+        ) : (
+          <Link to="/login" className={styles.link}>
+            <p>Login</p>
+          </Link>
+        )}
+      </div>
+      <div className={styles.twits-container}>
+        <ManyTwits />
+        <button onClick={newTwit} className={styles.new-twit-button}>
+          +
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default Homepage;
