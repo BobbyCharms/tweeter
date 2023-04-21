@@ -13,17 +13,15 @@ const NavigationBar = () => {
   console.log(loggedIn());
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" style={{ display: 'flex',backgroundColor:'#FFE600' }}>
           <Nav
             className="me-auto "
             style={{ display: 'flex', flexDirection: 'column' }}
           >
             <div>
               <Link to="/">
-                <Button variant="warning" style={{ marginRight: '10px' }}>
-                  Homepage
+                <Button variant="warning" style={{ marginBottom: '10px' }}>
+                  Home
                 </Button>{' '}
               </Link>
             </div>
@@ -51,9 +49,8 @@ const NavigationBar = () => {
             )}
           </Nav>
         </Navbar.Collapse>
-      </Container>
-    </Navbar>
   );
 };
 
 export default NavigationBar;
+
