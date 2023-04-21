@@ -1,22 +1,36 @@
-import logo from "./assets/logo.jpg"
-import "./Header.css";
+import logo from './assets/logo.jpg';
+import './Header.css';
 
-var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+var options = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+};
 let today = new Date();
-let date = today.toLocaleDateString("en-US", options);
+let date = today.toLocaleDateString('en-US', options);
 
 console.log(date);
 
-function Header() {return(
+const center = {
+  justifyContent: 'center',
+  textAlign: 'center',
+};
+
+function Header(props) {
+  return (
     <div>
-        <header>
-            <div className="brand">
-                <h1>Tweeter</h1>
-                <div className="picture"><img src={logo}/></div>
-            </div>
-            <p>{date}</p>
-        </header>
+      <header className="header">
+        <div className="brand" style={center}>
+          <h1>Tweeter</h1>
+          <div className="picture">
+            <img src={logo} />
+          </div>
+        </div>
+        <p style={center}>{date}</p>
+      </header>
     </div>
-)};
+  );
+}
 
 export default Header;
