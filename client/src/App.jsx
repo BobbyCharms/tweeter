@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import Homepage from './components/homepage/Homepage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
+import SingleUserTwit from './components/pages/SingleUserTwit';
 import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
 
@@ -53,6 +54,7 @@ function App() {
           path="/timeline/:id"
           element={<Timeline />}
         /> */}
+            <Route path="/:userId" element={<SingleUserTwit />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/twit/:id" element={<Twit />} />
