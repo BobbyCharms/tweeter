@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../../utils/mutations';
 
 import { login } from '../../utils/auth';
+import styles from './Login.css';
+
 
 // function Login() {
 const Login = (props) => {
@@ -40,6 +42,10 @@ const Login = (props) => {
   };
 
   return (
+    <div className={styles.container}>
+    <div className={styles.form}>
+      <h1>Login</h1>
+      <Form onSubmit={handleFormSubmit}></Form>
     <div className="d-flex justify-content-around">
       <div
         style={{ display: 'flex', justifyContent: 'end', marginTop: '40px' }}
@@ -88,6 +94,9 @@ const Login = (props) => {
         </Form>
       </div>
     </div>
+    </Form>
+    </div>
+  </div>
   );
 };
 
