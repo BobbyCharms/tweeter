@@ -6,6 +6,10 @@ const twitSchema = new Schema({
     type: String,
     required: true,
   },
+  username: {
+    type: String,
+    required: true,
+  },
   twitText: {
     type: String,
     required: true,

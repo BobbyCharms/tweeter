@@ -13,12 +13,15 @@ db.once('open', async () => {
 
     await User.create(userSeeds);
 
-    const dbUsers = await User.find({}, '_id')
+    const dbUsers = await User.find({})
     const userIds = dbUsers.map(dbUser => dbUser._id);
+    const usernames = dbUsers.map(dbUser => dbUser.username)
 
     for (let i = 0; i < twitSeeds.length; i++) {
-      const userId = userIds[Math.floor(Math.random() * userIds.length)].toString();
-      const { _id } = await Twit.create({ twitText: twitSeeds[i].twitText, userId: userId  } );
+      const randomIndex = Math.floor(Math.random() * userIds.length)
+      const userId = userIds[randomIndex].toString();
+      const username = usernames[randomIndex];
+      const { _id } = await Twit.create({ twitText: twitSeeds[i].twitText, userId: userId, username: username } );
       const user = await User.findOneAndUpdate(
         { _id: new mongoose.Types.ObjectId(userId) },
         {
