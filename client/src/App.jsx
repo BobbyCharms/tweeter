@@ -13,6 +13,9 @@ import Footer from './components/Footer';
 import Homepage from './components/homepage/Homepage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
+import SingleUserTwit from './components/pages/SingleUserTwit';
+import LoggedUserTwit from './components/pages/LoggedUserTwit';
+import SpecificTwit from './components/pages/SpecificTwit';
 import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
 import Comment from './components/comments/comment';
@@ -57,7 +60,7 @@ function App() {
         /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/twit/:id" element={<Twit />} />
+            <Route path="/twit/:id" element={<SpecificTwit />} />
           </Routes>
           <ManyComments comments ={commentsList} />
           <Footer />

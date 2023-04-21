@@ -8,8 +8,6 @@ import { login } from '../../utils/auth';
 // hooho
 import styles from './Login.css';
 
-// hooho
-
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [loginMutation, { error, data }] = useMutation(LOGIN);
