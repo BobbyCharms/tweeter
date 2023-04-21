@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { ADD_TWIT } from '../utils/mutations';
-import ManyTwits from '../../twit/manyTwits';
 
-const addTwit = () => {
+// import ManyTwits from '../../twit/manyTwits';
+
+const AddTwit = ({ addTwitMutation, twitText, setTwitText }) => {
   const [showTextArea, setShowTextArea] = useState(false);
-  const [addTwitMutation, { loading }] = useMutation(ADD_TWIT);
 
   const handleShowTextAreaClick = () => {
     setShowTextArea(!showTextArea);
   };
 
-  const newTwit = () => {
-    addTwitMutation({ variable: { twitText: 'Your new twit here.' } });
+  const handleTwitSubmit = async (event) => {
+    event.preventDefault();
+    console.log('Anything');
+    const { data } = await addTwitMutation({ variables: { twitText } });
+    console.log(data);
   };
+
+  // const handleTextAreaChange = () => {
+
+  // }
 
   return (
     <>
@@ -23,11 +28,12 @@ const addTwit = () => {
       {showTextArea && (
         <div className="input-group">
           <span className="input-group-text">With textarea</span>
-          <textarea className="form-control" aria-label="With textarea" />
+          <textarea className="form-control" aria-label="With textarea" onChange={setTwitText}/>
+          <button onClick={handleTwitSubmit}>TWIT</button>
         </div>
       )}
     </>
   );
 };
 
-export default addTwit;
+export default AddTwit;
