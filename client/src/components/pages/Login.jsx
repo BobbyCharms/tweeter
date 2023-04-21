@@ -94,7 +94,6 @@ const Login = (props) => {
         </Form>
       </div>
     </div>
-    </Form>
     </div>
   </div>
   );
