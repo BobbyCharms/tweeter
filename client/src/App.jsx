@@ -14,6 +14,7 @@ import Homepage from './components/homepage/Homepage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Twit from './twit/Twit';
+import NavigationBar from './components/pages/NavigationBar';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -44,6 +45,7 @@ function App() {
       <Router>
         <div>
           <Header />
+          <NavigationBar/>
           <Routes>
             <Route path="/" element={<Homepage />} />
             {/* <Route
@@ -58,6 +60,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+    
   );
 }
 
