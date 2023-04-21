@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { useState } from "react";
+import { useState } from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,6 +14,7 @@ import Homepage from './components/homepage/Homepage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import SingleUserTwit from './components/pages/SingleUserTwit';
+import LoggedUserTwit from './components/pages/LoggedUserTwit';
 import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
 
@@ -47,7 +47,7 @@ function App() {
       <Router>
         <div>
           <Header />
-          <NavigationBar/>
+          <NavigationBar />
           <Routes>
             <Route path="/" element={<Homepage />} />
             {/* <Route
@@ -55,6 +55,7 @@ function App() {
           element={<Timeline />}
         /> */}
             <Route path="/:userId" element={<SingleUserTwit />} />
+            <Route path="/user/:id" element={<LoggedUserTwit />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/twit/:id" element={<Twit />} />
@@ -63,7 +64,6 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
-    
   );
 }
 
