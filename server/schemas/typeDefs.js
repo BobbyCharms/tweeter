@@ -1,6 +1,5 @@
 const { gql } = require('apollo-server-express');
 
-
 const typeDefs = gql`
   type User {
     _id: ID
@@ -9,7 +8,7 @@ const typeDefs = gql`
     email: String
     tweeterYellow: Boolean
     createdAt: String
-    twits: [Twit]!
+    twits: [Twit]
   }
 
   type Twit {
@@ -21,7 +20,7 @@ const typeDefs = gql`
     retwitCounter: Int
     createdAt: String
     updatedAt: String
-    comments: [Comment]!
+    comments: [Comment]
   }
 
   type Comment {
