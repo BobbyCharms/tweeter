@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ManyTwits from '../../twit/manyTwits';
 import { loggedIn, logout } from '../../utils/auth';
-import styles from './Homepage.module.css';
+import styles from './Homepage.css';
 
 const newTwit = () => {
   //create a new twit
@@ -25,9 +25,9 @@ function Homepage() {
           </Link>
         )}
       </div>
-      <div className={styles.twits-container}>
+      <div className={styles.twitsContainer}>
         <ManyTwits />
-        <button onClick={newTwit} className={styles.new-twit-button}>
+        <button onClick={newTwit} className={styles.newTwitButton}>
           +
         </button>
       </div>
