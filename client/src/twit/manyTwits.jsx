@@ -1,10 +1,10 @@
-import twits from '../utils/dummyTwitData';
+//import twits from '../utils/dummyTwitData';
 import Twit from './Twit';
 
-function ManyTwits() {return(
+function ManyTwits({twits}) {return(
     <div>
         {twits.map((item, index) => (
-        <Twit key={index} username={item.username} twit={item.twit} />
+        <Twit key={index} username={item.username} twitText={item.twitText} />
         ))}
     </div>
 )}
