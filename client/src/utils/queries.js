@@ -69,6 +69,7 @@ export const QUERY_TWITS = gql`
     twits {
       _id
       userId
+      username
       twitText
       thumbsUp
       thumbsDown

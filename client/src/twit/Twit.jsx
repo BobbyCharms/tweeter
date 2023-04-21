@@ -5,7 +5,7 @@ import './Twit.css';
 import { HandThumbsUp, HandThumbsDown, Chat } from 'react-bootstrap-icons';
 
 const containerStyles = {
-    margin: '30px'
+    height: "auto"
 }
 
 const cardStyles = {
@@ -13,9 +13,10 @@ const cardStyles = {
 };
 
 function Twit(props) {
+  console.log(props)
   return (
     <div className="twit">
-        <Container className="d-flex justify-content-center mb-5">
+        <Container className="d-flex justify-content-center mb-5" style={containerStyles}>
       <Card style={cardStyles}>
         <Card.Header as="h5">
           <b>@{props.username}:</b>
@@ -23,7 +24,7 @@ function Twit(props) {
         <Card.Body>
           <Card.Title>{props.twit}</Card.Title>
           <Card.Text>{props.createdOn}</Card.Text>
-          <Container className="d-flex justify-content-start">
+          <Container className="d-flex justify-content-start" style={containerStyles}>
             <Chat className="mx-3"/>
             <HandThumbsUp className="mx-3"/>
             <HandThumbsDown className="mx-3"/>
