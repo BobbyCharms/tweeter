@@ -1,5 +1,6 @@
 import logo from './assets/logo.jpg';
 import './Header.css';
+import UsersName from '../usersName/UsersName';
 
 var options = {
   weekday: 'long',
@@ -28,6 +29,7 @@ function Header(props) {
           </div>
         </div>
         <p style={center}>{date}</p>
+        <UsersName />
       </header>
     </div>
   );
