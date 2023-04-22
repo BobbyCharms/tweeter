@@ -1,11 +1,12 @@
 import { getToken, getUser } from '../../utils/auth';
+import './UsersName.css'
 
 function UsersName() { 
     const user = getUser();
     console.log(user);
     return(
     <div>
-        <p>Welcome, {user.data.username}!</p>
+        <p><em>Welcome, {user.data.username}!</em></p>
     </div>
 )};
 
