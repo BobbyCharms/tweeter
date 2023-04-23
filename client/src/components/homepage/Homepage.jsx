@@ -17,6 +17,7 @@ const Homepage = () => {
       {loading ? (
         <div>Loading...</div>
       ) : (
+        // add ternary here so addTwit only shows up on loggedIn
         <>
           <AddTwit />
           <ManyTwits twits={twits} />
