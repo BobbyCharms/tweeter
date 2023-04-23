@@ -13,7 +13,7 @@ const NavigationBar = () => {
   console.log(loggedIn());
 
   return (
-    <Container fluid style={{ width: '100vw', paddingLeft: '0px' }}>
+    <Container fluid style={{ width: '100vw', paddingLeft: '0px', paddingRight: '0px' }}>
       <Navbar.Collapse
         id="basic-navbar-nav"
         style={{

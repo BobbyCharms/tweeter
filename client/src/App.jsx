@@ -18,6 +18,8 @@ import LoggedUserTwit from './components/pages/LoggedUserTwit';
 import SpecificTwit from './components/pages/SpecificTwit';
 import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
+import Comment from './components/comments/comment';
+import ManyComments from './components/comments/manyComments';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -55,11 +57,11 @@ function App() {
           path="/timeline/:id"
           element={<Timeline />}
         /> */}
-            <Route path="/:userId" element={<SingleUserTwit />} />
-            <Route path="/user/:id" element={<LoggedUserTwit />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/twit/:id" element={<SpecificTwit />} />
+            <Route path="/user/:id" element={<LoggedUserTwit />} />
+            <Route path=":id" element={<SingleUserTwit />} />
           </Routes>
           <Footer />
         </div>
