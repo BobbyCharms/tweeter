@@ -17,28 +17,22 @@ const AddComment = ({ twitId }) => {
         const twitIndex = twits.findIndex(
           (twit) => twit._id === addComment.twitId
         );
-        console.log(twitIndex);
 
         if (twitIndex !== -1) {
           const updatedTwit = {
             ...twits[twitIndex],
             comments: [addComment, ...twits[twitIndex].comments],
           };
-          console.log('here');
+          console.log(updatedTwit);
           // Then we update the cache by combining existing profile data with the newly created data returned from the mutation
           cache.writeQuery({
             query: QUERY_TWITS,
             // If we want new data to show up before or after existing data, adjust the order of this array
             data: {
               twits: [
-                [
-                  ...twits.slice(0, twitIndex),
-                  {
-                    ...twits[twitIndex],
-                    comments: updatedTwit.comments,
-                  },
-                  ...twits.slice(twitIndex + 1),
-                ],
+                ...twits.slice(0, twitIndex),
+                updatedTwit,
+                ...twits.slice(twitIndex + 1),
               ],
             },
           });
