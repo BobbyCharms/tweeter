@@ -41,9 +41,9 @@ const AddTwit = () => {
 
     const { data } = await addTwitMutation({
       variables: {
-        twitText: twitText,
         userId: getUser().data._id,
         username: getUser().data.username,
+        twitText: twitText,
       },
     });
     console.log(data);

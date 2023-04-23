@@ -52,7 +52,17 @@ export const ADD_TWIT = gql`
       retwitCounter
       createdAt
       updatedAt
-      comments
+      comments {
+        _id
+        twitId
+        userId
+        username
+        commentText
+        thumbsUp
+        thumbsDown
+        createdAt
+        updatedAt
+      }
     }
   }
 `;
