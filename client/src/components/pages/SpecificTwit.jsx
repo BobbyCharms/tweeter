@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { loggedIn } from '../../utils/auth';
 import { useParams } from 'react-router-dom';
-import { QUERY_SINGLE_TWIT } from '../../utils/queries';
+import { QUERY_SINGLE_TWIT, QUERY_TWITS } from '../../utils/queries';
 import AddComment from '../comments/addComment.jsx';
 import Twit from '../../twit/Twit.jsx';
 import ManyComments from '../comments/manyComments.jsx';
@@ -16,6 +16,9 @@ const SpecificTwit = () => {
     return <div>Error</div>;
   }
   const twit = data?.singleTwit || {};
+
+  const { loadingPlural, dataTwits } = useQuery(QUERY_TWITS);
+  const twits = data?.twits || [];
 
   return (
     <>

@@ -37,7 +37,6 @@ const AddTwit = () => {
   const handleTwitSubmit = async (event) => {
     event.preventDefault();
     console.log({ twitText });
-    console.log(getUser().data.createdAt);
 
     const { data } = await addTwitMutation({
       variables: {

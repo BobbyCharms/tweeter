@@ -75,6 +75,7 @@ const resolvers = {
         return await Comment.create({
           twitId,
           commentText,
+          username: context.user.username,
           userId: context.user._id,
         });
       }

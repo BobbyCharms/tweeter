@@ -1,11 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
 import { QUERY_TWITS, QUERY_SINGLE_USER } from '../../utils/queries';
 import { getUser } from '../../utils/auth';
-import { useParams } from 'react-router-dom';
-
-// import ManyTwits from '../../twit/manyTwits';
 
 const AddComment = ({ twitId }) => {
   const [showTextArea, setShowTextArea] = useState(false);
@@ -16,17 +13,18 @@ const AddComment = ({ twitId }) => {
         // First we retrieve existing profile data that is stored in the cache under the `QUERY_PROFILES` query
         // Could potentially not exist yet, so wrap in a try/catch
         const { twits } = cache.readQuery({ query: QUERY_TWITS });
-
+        console.log(addComment.twitId);
         const twitIndex = twits.findIndex(
-          (twit) => twit.id === addComment.twitId
+          (twit) => twit._id === addComment.twitId
         );
+        console.log(twitIndex);
 
         if (twitIndex !== -1) {
           const updatedTwit = {
             ...twits[twitIndex],
             comments: [addComment, ...twits[twitIndex].comments],
           };
-
+          console.log('here');
           // Then we update the cache by combining existing profile data with the newly created data returned from the mutation
           cache.writeQuery({
             query: QUERY_TWITS,
@@ -37,7 +35,7 @@ const AddComment = ({ twitId }) => {
                   ...twits.slice(0, twitIndex),
                   {
                     ...twits[twitIndex],
-                    comments: updatedComments,
+                    comments: updatedTwit.comments,
                   },
                   ...twits.slice(twitIndex + 1),
                 ],
@@ -58,13 +56,12 @@ const AddComment = ({ twitId }) => {
 
   const handleCommentSubmit = async (event) => {
     event.preventDefault();
-
     const { data } = await addCommentMutation({
       variables: {
-        userId: getUser().data._id,
-        username: getUser().data.username,
-        commentText: commentText,
         twitId: twitId,
+        commentText: commentText,
+        username: getUser().data.username,
+        userId: getUser().data._id,
       },
     });
     console.log(data);

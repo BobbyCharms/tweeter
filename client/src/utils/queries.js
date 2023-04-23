@@ -43,6 +43,7 @@ export const QUERY_SINGLE_USER = gql`
       twits {
         _id
         userId
+        username
         twitText
         thumbsUp
         thumbsDown
@@ -53,6 +54,7 @@ export const QUERY_SINGLE_USER = gql`
           _id
           twitId
           userId
+          username
           commentText
           thumbsUp
           thumbsDown
@@ -80,6 +82,7 @@ export const QUERY_TWITS = gql`
         _id
         twitId
         userId
+        username
         commentText
         thumbsUp
         thumbsDown
@@ -106,6 +109,7 @@ export const QUERY_USER_TWITS = gql`
         _id
         twitId
         userId
+        username
         commentText
         thumbsUp
         thumbsDown
