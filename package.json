@@ -11,7 +11,9 @@
     "server": "cd server && npm run watch",
     "start": "cd server && npm run start",
     "build": "cd client && npm run build",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "postinstall": "npm run seed"
+
   },
   "keywords": [],
   "author": "",
