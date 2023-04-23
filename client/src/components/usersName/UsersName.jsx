@@ -1,13 +1,19 @@
-import { getToken, getUser } from '../../utils/auth';
-import './UsersName.css'
+import { getToken, getUser, loggedIn } from '../../utils/auth';
+import './UsersName.css';
 
-function UsersName() { 
-    const user = getUser();
-    console.log(user);
-    return(
+function UsersName() {
+  let username = 'Guest';
+  if (loggedIn()) {
+    username = getUser().data.username;
+  }
+
+  return (
     <div>
-        <p><em>Welcome, {user.data.username}!</em></p>
+      <p>
+        <em>Welcome, {username}!</em>
+      </p>
     </div>
-)};
+  );
+}
 
 export default UsersName;
