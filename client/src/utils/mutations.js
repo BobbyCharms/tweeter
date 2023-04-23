@@ -97,10 +97,12 @@ export const ADD_COMMENT = gql`
       _id
       twitId
       userId
+      username
       commentText
       thumbsUp
       thumbsDown
       createdAt
+      updatedAt
     }
   }
 `;
@@ -111,6 +113,7 @@ export const EDIT_COMMENT = gql`
       _id
       twitId
       userId
+      username
       commentText
       thumbsUp
       thumbsDown

@@ -8,7 +8,7 @@ const commentSchema = new Schema({
   },
   username: {
     type: String,
-    required: true,
+    required: false,
   },
   twitId: {
     type: String,
