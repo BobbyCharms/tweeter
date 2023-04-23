@@ -21,13 +21,18 @@ const resolvers = {
       });
     },
     twits: async () => {
-      return Twit.find().populate('comments');
+      return Twit.find().populate('comments').sort({ createdAt: -1 });
     },
     userTwits: async (parent, { userId }) => {
-      return Twit.find({ userId: userId }).populate('comments');
+      return Twit.find({ userId: userId })
+        .populate('comments')
+        .sort({ createdAt: -1 });
     },
     singleTwit: async (parent, { twitId }) => {
-      return Twit.findOne({ _id: twitId }).populate('comments');
+      return Twit.findOne({ _id: twitId }).populate({
+        path: 'comments',
+        options: { sort: { updatedAt: -1 } },
+      });
     },
   },
   Mutation: {

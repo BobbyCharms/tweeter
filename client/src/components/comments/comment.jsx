@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import './comments.css';
+import { Link } from 'react-router-dom';
 import { HandThumbsUp, HandThumbsDown, Chat } from 'react-bootstrap-icons';
 
 const containerStyles = {
@@ -20,7 +21,9 @@ function Comment(props) {
     >
       <Card style={cardStyles}>
         <Card.Header as="h5">
-          <b>@{props.username}</b>
+          <Link to={`/${props.userId}`}>
+            <b>@{props.username}</b>
+          </Link>
         </Card.Header>
         <Card.Body>
           <Card.Title>{props.comment}</Card.Title>

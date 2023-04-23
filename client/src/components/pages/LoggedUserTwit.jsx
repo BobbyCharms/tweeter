@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER_TWITS } from '../../utils/queries';
 import ManyTwits from '../../twit/manyTwits';
 import { getToken, getUser } from '../../utils/auth';
+import AddTwit from '../../twit/addTwit';
 
 const LoggedUserTwit = () => {
   const userId = getUser().data._id;
@@ -16,7 +17,12 @@ const LoggedUserTwit = () => {
   const twits = data?.userTwits || [];
   console.log(data);
   console.log(twits);
-  return <>{loading ? <div>Loading...</div> : <ManyTwits twits={twits} />}</>;
+  return (
+    <>
+      <AddTwit />
+      {loading ? <div>Loading...</div> : <ManyTwits twits={twits} />}
+    </>
+  );
 };
 
 export default LoggedUserTwit;

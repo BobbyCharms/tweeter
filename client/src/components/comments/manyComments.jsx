@@ -4,6 +4,7 @@ import Comment from './comment';
 function ManyComments({ comments }) {
   return (
     <div>
+      <h4 className="text-center">Comments</h4>
       {comments.map((item, index) => (
         <Comment
           key={index}

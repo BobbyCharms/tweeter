@@ -4,6 +4,7 @@ import Twit from './Twit';
 function ManyTwits({ twits }) {
   return (
     <div>
+      <h2 className="text-center">Twits</h2>
       {twits.map((item, index) => (
         <Twit
           key={index}

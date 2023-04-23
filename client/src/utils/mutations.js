@@ -45,11 +45,24 @@ export const ADD_TWIT = gql`
     addTwit(twitText: $twitText) {
       _id
       userId
+      username
       twitText
       thumbsUp
       thumbsDown
       retwitCounter
       createdAt
+      updatedAt
+      comments {
+        _id
+        twitId
+        userId
+        username
+        commentText
+        thumbsUp
+        thumbsDown
+        createdAt
+        updatedAt
+      }
     }
   }
 `;
