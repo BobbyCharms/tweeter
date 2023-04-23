@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
+import { loggedIn } from '../../utils/auth';
 import { QUERY_USER_TWITS } from '../../utils/queries';
 import ManyTwits from '../../twit/manyTwits';
 import { getToken, getUser } from '../../utils/auth';
@@ -19,7 +20,7 @@ const LoggedUserTwit = () => {
   console.log(twits);
   return (
     <>
-      <AddTwit />
+      {loggedIn() ? <AddTwit /> : null}
       {loading ? <div>Loading...</div> : <ManyTwits twits={twits} />}
     </>
   );
