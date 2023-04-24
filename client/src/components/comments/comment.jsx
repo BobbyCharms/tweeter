@@ -12,7 +12,7 @@ const containerStyles = {
   height: 'auto',
 };
 const cardStyles = {
-  width: '36rem',
+  width: '30rem',
 };
 
 const Comment = (props) => {
@@ -60,8 +60,8 @@ const Comment = (props) => {
           )}
         </Card.Header>
         <Card.Body>
-          <Card.Title>{props.comment}</Card.Title>
-          <Card.Text>{props.createdOn}</Card.Text>
+          <Card.Title className="commentFont">{props.comment}</Card.Title>
+          <Card.Text className="commentFont">{props.createdOn}</Card.Text>
 
           <Container
             className="d-flex justify-content-start"
