@@ -20,6 +20,7 @@ import Twit from './twit/Twit';
 import NavigationBar from './components/pages/NavigationBar';
 import Comment from './components/comments/comment';
 import ManyComments from './components/comments/manyComments';
+import Elonmusk from './components/elonMusk/elonMusk';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -63,6 +64,7 @@ function App() {
             <Route path="/user/:id" element={<LoggedUserTwit />} />
             <Route path=":id" element={<SingleUserTwit />} />
           </Routes>
+          <Elonmusk />
           <Footer />
         </div>
       </Router>
