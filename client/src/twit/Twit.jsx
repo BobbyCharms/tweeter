@@ -62,8 +62,8 @@ const Twit = (props) => {
             )}
           </Card.Header>
           <Card.Body>
-            <Card.Title>{props.twit}</Card.Title>
-            <Card.Text>{props.createdAt}</Card.Text>
+            <Card.Title className="twit">{props.twit}</Card.Title>
+            <Card.Text className="twit">{props.createdAt}</Card.Text>
             <Container
               className="d-flex justify-content-start"
               style={containerStyles}
