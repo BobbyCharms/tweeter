@@ -78,7 +78,7 @@ function Register() {
             </Form.Group>
 
             <Button
-              variant="primary"
+              variant="warning"
               type="submit"
               style={{ marginTop: '20px' }}
             >
