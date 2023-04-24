@@ -44,7 +44,7 @@ const Login = (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <h1>Login</h1>
+      
         <Form onSubmit={handleFormSubmit}></Form>
         <div className="d-flex justify-content-around">
           <div
