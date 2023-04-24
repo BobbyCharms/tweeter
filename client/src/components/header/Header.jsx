@@ -23,7 +23,7 @@ function Header(props) {
     <div>
       <header className="header">
         <div className="brand" style={center}>
-          <h1>Tweeter</h1>
+          <h1 className="tweeter">Tweeter</h1>
           <div className="picture">
             <img src={logo} />
           </div>

@@ -1,21 +1,17 @@
-* {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
 header {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-between; */
     background-color: rgb(255, 230, 0);
-}
-
-h1 {
-    padding-left: 10px;
-}
-
-header {
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Lobster', cursive;
+    color:black;
     display: flex;
     flex-direction: column;
+    font-size: 30px;
+}
+
+.tweeter {
+    padding-left: 10px;
+    color: black;
+    font-size: 4.0rem;
 }
 
 img {
@@ -38,7 +34,7 @@ img {
 header p {
     padding-left: 10px;
     padding-bottom: 10px;
-    font-size: 17px;
+    font-size: 30px;
     margin-bottom: 0px;
 }
 
