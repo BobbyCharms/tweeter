@@ -3,13 +3,15 @@ import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_USER_TWITS } from '../../utils/queries';
 import ManyTwits from '../../twit/manyTwits';
-import { getUser } from '../../utils/auth';
+import { getUser, loggedIn } from '../../utils/auth';
 
 const SingleUserTwit = () => {
   const { id } = useParams();
-  if (id === getUser().data._id) {
-    // reload the page at /user/:id
-    window.location.assign('/user/' + id);
+  if (loggedIn()) {
+    if (id === getUser().data._id) {
+      // reload the page at /user/:id
+      window.location.assign('/user/' + id);
+    }
   }
   console.log(useParams());
   const { loading, error, data } = useQuery(QUERY_USER_TWITS, {
